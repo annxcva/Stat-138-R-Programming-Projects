@@ -1,0 +1,634 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+
+\documentclass[]{article}
+\usepackage{graphicx, enumitem, cancel, fancyhdr, float} 
+\usepackage[a4paper, margin=1.25in]{geometry}
+\pagestyle{fancy}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+
+\setlength{\headheight}{15pt}
+\lhead{2nd Sem, A.Y. 2024-2025}
+\chead{Stat 138: Problem Set 4}
+\rhead{Amores}
+
+\title{Stat 138: Introduction to Sampling Designs \\ Problem Set 4}
+\author{Anne Christine Amores}
+\date{April 25, 2025}
+
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Green Globules}
+
+The new candy Green Globules is being test-marketed in an area of upstate New York. The market research firm decided to sample 6 cities from the 45 cities in the area and then to sample supermarkets within cities, wanting to know the number of cases of Green Globules sold.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|l|}
+\hline
+\textbf{City} & \textbf{Number of Supermarkets} & \multicolumn{1}{c|}{\textbf{Number of Cases Sold}} \\
+\hline
+1 & 52 & 146, 180, 251, 152, 72, 181, 171, 361, 73, 186 \\
+2 & 19 & 99, 101, 52, 121 \\
+3 & 37 & 199, 179, 98, 63, 126, 87, 62 \\
+4 & 39 & 226, 129, 57, 46, 86, 43, 85, 165 \\
+5 & 8  & 12, 23 \\
+6 & 14 & 87, 43, 59 \\
+\hline
+\end{tabular}
+\label{tab:green-globules}
+\end{table}
+ 
+\textbf{Obtain summary statistics for each cluster. Plot the data, and estimate the total number of cases sold, and the average number sold per supermarket, along with the standard errors of your estimates.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting the data }
+\NormalTok{cases }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{146}\NormalTok{, }\DecValTok{180}\NormalTok{, }\DecValTok{251}\NormalTok{, }\DecValTok{152}\NormalTok{, }\DecValTok{72}\NormalTok{, }\DecValTok{181}\NormalTok{, }\DecValTok{171}\NormalTok{, }\DecValTok{361}\NormalTok{, }\DecValTok{73}\NormalTok{, }\DecValTok{186}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{99}\NormalTok{, }\DecValTok{101}\NormalTok{, }\DecValTok{52}\NormalTok{, }\DecValTok{121}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{199}\NormalTok{, }\DecValTok{179}\NormalTok{, }\DecValTok{98}\NormalTok{, }\DecValTok{63}\NormalTok{, }\DecValTok{126}\NormalTok{, }\DecValTok{87}\NormalTok{, }\DecValTok{62}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{226}\NormalTok{, }\DecValTok{129}\NormalTok{, }\DecValTok{57}\NormalTok{, }\DecValTok{46}\NormalTok{, }\DecValTok{86}\NormalTok{, }\DecValTok{43}\NormalTok{, }\DecValTok{85}\NormalTok{, }\DecValTok{165}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{23}\NormalTok{),}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{87}\NormalTok{, }\DecValTok{43}\NormalTok{, }\DecValTok{59}\NormalTok{)}
+\NormalTok{)}
+\FunctionTok{boxplot}\NormalTok{(cases,}
+        \AttributeTok{names =} \FunctionTok{paste}\NormalTok{(}\StringTok{"City"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{),}
+        \AttributeTok{col =} \StringTok{"lightblue"}\NormalTok{,}
+        \AttributeTok{main =} \StringTok{"Distribution of Cases Sold per Supermarket"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Cases Sold"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Creating a base dataframe w/ the given info}
+\NormalTok{city }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{6} 
+\NormalTok{M\_i }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{52}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{37}\NormalTok{, }\DecValTok{39}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{14}\NormalTok{)}
+\NormalTok{m\_i }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+
+\NormalTok{gg1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(city, M\_i, m\_i)}
+\FunctionTok{print}\NormalTok{(gg1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   city M_i m_i
+## 1    1  52  10
+## 2    2  19   4
+## 3    3  37   7
+## 4    4  39   8
+## 5    5   8   2
+## 6    6  14   3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Specifying y\_ij, the jth no. of cases sold per ith city}
+\NormalTok{city1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{146}\NormalTok{, }\DecValTok{180}\NormalTok{, }\DecValTok{251}\NormalTok{, }\DecValTok{152}\NormalTok{, }\DecValTok{72}\NormalTok{, }\DecValTok{181}\NormalTok{, }\DecValTok{171}\NormalTok{, }\DecValTok{361}\NormalTok{, }\DecValTok{73}\NormalTok{, }\DecValTok{186}\NormalTok{)}
+\NormalTok{city2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{99}\NormalTok{, }\DecValTok{101}\NormalTok{, }\DecValTok{52}\NormalTok{, }\DecValTok{121}\NormalTok{)}
+\NormalTok{city3 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{199}\NormalTok{, }\DecValTok{179}\NormalTok{, }\DecValTok{98}\NormalTok{, }\DecValTok{63}\NormalTok{, }\DecValTok{126}\NormalTok{, }\DecValTok{87}\NormalTok{, }\DecValTok{62}\NormalTok{)}
+\NormalTok{city4 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{226}\NormalTok{, }\DecValTok{129}\NormalTok{, }\DecValTok{57}\NormalTok{, }\DecValTok{46}\NormalTok{, }\DecValTok{86}\NormalTok{, }\DecValTok{43}\NormalTok{, }\DecValTok{85}\NormalTok{, }\DecValTok{165}\NormalTok{)}
+\NormalTok{city5 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{23}\NormalTok{)}
+\NormalTok{city6 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{87}\NormalTok{, }\DecValTok{43}\NormalTok{, }\DecValTok{59}\NormalTok{)}
+\NormalTok{cities }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(city1, city2, city3, city4, city5, city6)}
+
+\CommentTok{\# Updating the dataframe with summary statistics  }
+\NormalTok{gg1 }\OtherTok{\textless{}{-}}\NormalTok{ gg1 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{y\_bar\_i =} \FunctionTok{sapply}\NormalTok{(cities, mean),}
+    \AttributeTok{s2\_i =} \FunctionTok{sapply}\NormalTok{(cities, var),}
+    \AttributeTok{t\_hat\_i =}\NormalTok{ M\_i }\SpecialCharTok{/}\NormalTok{ m\_i }\SpecialCharTok{*}\FunctionTok{sapply}\NormalTok{(cities, sum)}
+\NormalTok{  )}
+
+\FunctionTok{print}\NormalTok{(gg1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   city M_i m_i  y_bar_i      s2_i  t_hat_i
+## 1    1  52  10 177.3000 6988.9000 9219.600
+## 2    2  19   4  93.2500  854.9167 1771.750
+## 3    3  37   7 116.2857 2974.5714 4302.571
+## 4    4  39   8 104.6250 4172.2679 4080.375
+## 5    5   8   2  17.5000   60.5000  140.000
+## 6    6  14   3  63.0000  496.0000  882.000
+\end{verbatim}
+
+From this, we can now compute an estimate for the total number of cases sold by plugging values into the following formula:
+\[
+\begin{aligned}
+\hat t_{unb} &= \sum_{i \in S}\frac{N}{n}\hat t_i \\
+&= \frac{45}{6}\left(9219.6 + 1771.750 + 4302.571429 + 4080.375 + 140 + 882\right) \\
+&= \fbox{152972.2232}
+\end{aligned}
+\]
+Now, to compute the standard error of this estimate, we need to compute for 
+\[
+\begin{aligned}
+SE(\hat t_{unb)} &= \sqrt{\hat V(\hat t_{unb})} \\
+&= \sqrt{N^2(1-\frac{n}{N})\frac{s_t^2}{n} + \frac{N}{n}\sum_{i \in S}(1-\frac{m_i}{M_i})M_i^2\frac{s_i^2}{m_i}} \\
+\text{where } s_t^2 = \frac{1}{n-1}\sum_{i \in S}\left(\hat t_i - \frac{\hat t_{unb}}{N}\right)^2.
+\end{aligned}
+\]
+The values we are missing to compute $\hat  V(\hat t_{unb})$ are $s_t^2$ and $\sum_{i \in S}\left(1 - \frac{m_i}{M_i}\right)M_i^2\frac{s_i^2}{m_i}$. \\
+\\
+Computing for the term $(\hat t_i - \frac{\hat t_{unb}}{N})^2$ (which is needed for $s_t^2$) for the first city:
+\[
+\begin{aligned}
+\left(\hat t_1 - \frac{\hat t_{unb}}{N}\right)^2 &= \left(9219.6 - \frac{152972.2}{45}\right)^2 \\
+&= 33874934.98
+\end{aligned}
+\]
+Computing the rest using R, we will label the column containing these values \textbf{"forvart".} \\
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t\_hat\_unb }\OtherTok{\textless{}{-}} \FloatTok{152972.2232}
+\NormalTok{N }\OtherTok{\textless{}{-}} \DecValTok{45}
+
+\NormalTok{gg2 }\OtherTok{\textless{}{-}}\NormalTok{ gg1 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{forvart =}\NormalTok{ (gg1}\SpecialCharTok{$}\NormalTok{t\_hat\_i }\SpecialCharTok{{-}}\NormalTok{ t\_hat\_unb }\SpecialCharTok{/}\NormalTok{ N)}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{M\_i, }\SpecialCharTok{{-}}\NormalTok{m\_i, }\SpecialCharTok{{-}}\NormalTok{y\_bar\_i, }\SpecialCharTok{{-}}\NormalTok{s2\_i, }\SpecialCharTok{{-}}\NormalTok{t\_hat\_i)}
+\FunctionTok{print}\NormalTok{(gg2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   city    forvart
+## 1    1 33874929.0
+## 2    2  2649188.3
+## 3    3   815749.8
+## 4    4   463750.5
+## 5    5 10623575.8
+## 6    6  6337215.8
+\end{verbatim}
+
+Summing up the values of the column "forvart", we will get 
+\[
+\begin{aligned}
+\sum_{i \in S}\left(\hat t_i - \frac{\hat t_{unb}}{N}\right)^2 &= 54764409.26 \\
+\end{aligned}
+\]
+and we can now compute for $s_t^2$ as
+\[
+\begin{aligned}
+ s_t^2 &= \frac{1}{n-1}\sum_{i \in S}\left(\hat t_i - \frac{\hat t_{unb}}{N}\right)^2 \\
+ &= \frac{1}{6-1}(54764409.26) \\
+ &= 10952881.85
+\end{aligned}
+\]
+\\
+Now, to compute for $\sum_{i \in S}\left(1 - \frac{m_i}{M_i}\right)M_i^2\frac{s_i^2}{m_i}$ (which is needed for $\hat V(\hat t_{unb})$), we will label the column containing the values of $\left(1 - \frac{m_i}{M_i}\right)M_i^2\frac{s_i^2}{m_i}$ as \textbf{"forvarthat".} \\
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gg2 }\OtherTok{\textless{}{-}}\NormalTok{ gg2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{forvarthat =}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ m\_i }\SpecialCharTok{/}\NormalTok{ M\_i) }\SpecialCharTok{*}\NormalTok{ M\_i}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ gg1}\SpecialCharTok{$}\NormalTok{s2\_i }\SpecialCharTok{/}\NormalTok{ m\_i}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{forvart)}
+\FunctionTok{print}\NormalTok{(gg2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   city forvarthat
+## 1    1 1526375.76
+## 2    2   60912.81
+## 3    3  471682.04
+## 4    4  630533.98
+## 5    5    1452.00
+## 6    6   25461.33
+\end{verbatim}
+
+Summing up the values of the column "forvarthat", we will get 
+\[
+\begin{aligned}
+\sum_{i \in S}\left(1 - \frac{m_i}{M_i}\right)M_i^2\frac{s_i^2}{m_i} &= 2716417.927  \\
+\end{aligned}
+\]
+Thus, the standard error of $\hat t_{unb}$ is given by
+\[
+\begin{aligned}
+SE(\hat t_{unb)} &= \sqrt{\hat V(\hat t_{unb})} \\
+&= \sqrt{N^2(1-\frac{n}{N})\frac{s_t^2}{n} + \frac{N}{n}\sum_{i \in S}(1-\frac{m_i}{M_i})M_i^2\frac{s_i^2}{m_i}} \\
+&= \sqrt{45^2(1-\frac{6}{45})\frac{10952881.85}{6} + \frac{45}{6}(2716417.927)} \\
+&= \fbox{56781.0803}
+\end{aligned}
+\]
+
+To estimate the average number of cases sold per supermarket, we use the following formula:
+\[
+\begin{aligned}
+\hat{\bar y}_r &= \frac{\hat t_{unb}}{\hat M_o} \\
+&= \frac{\hat t_{unb}}{\sum_{i \in S}\frac{N}{n}M_i} \\
+&= \frac{152972.2232}{\frac{45}{6}(52  + 19 + 37 + 39 + 8 + 14)} \\
+&= \fbox{120.6881}
+\end{aligned}
+\]
+To obtain the standard error of $\hat{\bar y}_r$, 
+\[
+\begin{aligned}
+SE(\hat{\bar y}_r) &= \sqrt{\hat V(\hat{\bar y}_r)} \\
+&= \sqrt{\frac{1}{\bar M^2}\left(1-\frac{n}{N}\right)\frac{s_r^2}{n} + \frac{1}{nN\bar M^2}\sum_{i \in S}\left(1 - \frac{m_i}{M_i}\right)M_i^2\frac{s_i^2}{m_i}}, \\
+\text{where } s_r^2 = \frac{1}{n-1}\sum_{i \in S}(M_i\bar y_i - M_i\hat{\bar y}_r)^2.
+\end{aligned}
+\]
+The values we are missing to compute $\hat V(\hat{\bar y}_r)$ are $\bar M$ and $s_r^2$. \\
+
+First,
+\[
+\begin{aligned}
+\bar M &= \frac{\sum_{i \in S}M_i}{n} = \frac{169}{6}
+\end{aligned}
+\]
+
+Next, to compute for $\sum_{i \in S}(M_i\bar y_i - M_i\hat{\bar y}_r)^2$ (which is needed for $\hat V(\hat{\bar y}_r)$), we will label the column containing the values of $(M_i\bar y_i - M_i\hat{\bar y}_r)^2$ as \textbf{"forvarybar".} \\
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y\_bar\_hat\_r }\OtherTok{\textless{}{-}}
+\NormalTok{gg2 }\OtherTok{\textless{}{-}}\NormalTok{ gg2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{forvarybar=}\NormalTok{ (M\_i }\SpecialCharTok{*}\NormalTok{ gg1}\SpecialCharTok{$}\NormalTok{y\_bar\_i }\SpecialCharTok{{-}}\NormalTok{ M\_i }\SpecialCharTok{*} \FloatTok{120.6881}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{forvarthat)}
+\FunctionTok{print}\NormalTok{(gg2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   city forvarybar
+## 1    1 8666069.13
+## 2    2  271778.61
+## 3    3   26532.59
+## 4    4  392453.26
+## 5    5  681458.17
+## 6    6  652271.71
+\end{verbatim}
+
+Summing up the values of the column "forvarybar", we will get 
+\[
+\begin{aligned}
+\sum_{i \in S}(M_i\bar y_i - M_i\hat{\bar y}_r)^2 &= 10690563.47  \\
+\end{aligned}
+\]
+and we can now compute for $s_r^2$ as 
+\[
+\begin{aligned}
+s_r^2 &= \frac{1}{n-1}\sum_{i \in S}(M_i\bar y_i - M_i\hat{\bar y}_r)^2 \\
+&= \frac{1}{6-1}(10690563.47) \\
+&= 2138112.694
+\end{aligned}
+\]
+Thus, the standard error of $\hat{\bar y}_r$ is given by
+\[
+\begin{aligned}
+SE(\hat{\bar y}_r) &= \sqrt{\hat V(\hat{\bar y}_r)} \\
+&= \sqrt{\frac{1}{\left(\frac{169}{6}\right)^2}\left(1-\frac{6}{45}\right)\frac{2138112.694}{6} + \frac{1}{(6)(45)\left(\frac{169}{6}\right)^2}(2716417.927 )} \\
+&= \sqrt{401.9598426} \\
+&= \fbox{20.0489}
+\end{aligned}
+\]
+
+\section{Measles}
+The file measles.dat contains data consistent with that obtained in a survey of parents whose children had not been immunized for measles during a recent campaign to immunize all children between the ages of 11 and 15. During the campaign, 7633 children from the 46 schools in the area were immunized; 9962 children whose records showed no previous immunization were not immunized. In a follow-up survey to explore why the children had not been immunized during the campaign, Roberts et al. (1955) sent questionnaires to the parents of a cluster sample of the 9962 children. Ten schools were randomly selected, then a sample of the $M_i$ nonimmunized children from each school was selected and the parents of those children were sent a questionnaire. Not all parents responded to the questionnaire.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item \textbf{Estimate, separately for each school, the percentage of parents who returned a consent form (variable \textit{returnf}). For this exercise, treat the "no answer" responses (value 9) as not returned.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Importing dataset}
+\NormalTok{measles }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"measles.xlsx"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(measles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 13
+##   school  form returnf consent hadmeas previmm sideeff   gp noshot 
+##    <dbl> <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl> <dbl>  <dbl>  
+## 1      1     1       1       0       1       0       0     0      0      
+## 2      1     1       1       0       1       1       0     0      0      
+## 3      1     1       1       0       1       0       0     0      0     
+## 4      1     1       0       0       1       1       0     0      0      
+## 5      1     1       1       0       0       0       1     0      0    
+## 6      1     0       9       9       0       0       0     0      0      
+## # i  more variables: Mitotal <dbl>, mi <dbl>, notser <dbl>, gpadv <dbl>
+\end{verbatim}
+
+\vspace{1em}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Updating the dataset}
+\NormalTok{measles\_cleaned }\OtherTok{\textless{}{-}}\NormalTok{ measles }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{returned =} \FunctionTok{ifelse}\NormalTok{(returnf }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+  
+\CommentTok{\# Computing for the \% of parents who returned a consent form per school}
+\NormalTok{measles\_returned }\OtherTok{\textless{}{-}}\NormalTok{ measles\_cleaned }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(school) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{M\_i =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{t\_i =} \FunctionTok{sum}\NormalTok{(returned),}
+    \AttributeTok{percent =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(returned) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\FunctionTok{print}\NormalTok{(measles\_returned)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 4
+##    school   M_i   t_i  percent
+##     <dbl> <int> <dbl>   <dbl>
+##  1      1    40    19    47.5
+##  2      2    38    19    50  
+##  3      3    19    13    68.4
+##  4      4    30    18    60  
+##  5      5    30    12    40  
+##  6      6    25    13    52  
+##  7      7    23    15    65.2
+##  8      8    43    21    48.8
+##  9      9    38    23    60.5
+## 10     10    21     7    33.3
+\end{verbatim}
+
+\vspace{1em}
+The rightmost column in the table directly above gives the percentage of parents who returned a consent form. 
+
+This was computed by multiplying the mean of $y_{ij}$ (which is a proportion in this case) by 100, where $y_{ij}$ is defined as follows:
+\[ y_{ij} = \begin{cases} 
+      1 & \text{if parent of child } j \text{ in school } i \text{ returned the form} \\
+      0 & \text{otherwise}
+   \end{cases}
+\]
+
+\item \textbf{Using the number of respondents in school $i$ as $m_i$, construct the sampling weight for each observation.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{N }\OtherTok{=} \DecValTok{46}
+\NormalTok{n }\OtherTok{=} \DecValTok{10}
+
+\CommentTok{\#Calculating the sample weights for each observation}
+\NormalTok{measles\_weights }\OtherTok{\textless{}{-}}\NormalTok{ measles }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(school) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{m\_i =}\NormalTok{ mi,}
+    \AttributeTok{M\_i =}\NormalTok{ Mitotal,}
+    \AttributeTok{samp\_weight =}\NormalTok{ (N }\SpecialCharTok{*}\NormalTok{ M\_i) }\SpecialCharTok{/}\NormalTok{ (n }\SpecialCharTok{*}\NormalTok{ m\_i)}
+\NormalTok{  )}
+\FunctionTok{print}\NormalTok{(measles\_weights)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 307 x 4
+## # Groups:   school [10]
+##    school   m_i   M_i samp_weight
+##     <dbl> <dbl> <dbl>       <dbl>
+##  1      1    40    78        8.97
+##  2      1    40    78        8.97
+##  3      1    40    78        8.97
+##  4      1    40    78        8.97
+##  5      1    40    78        8.97
+##  6      1    40    78        8.97
+##  7      1    40    78        8.97
+##  8      1    40    78        8.97
+##  9      1    40    78        8.97
+## 10      1    40    78        8.97
+## # i 297 more rows
+\end{verbatim}
+
+\vspace{1em}
+The following is a compressed version of the previous table, where the sampling weights are grouped by school, in order to show all sampling weights,
+
+\vspace{0.5em}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Compressing into 10 rows}
+\NormalTok{weights\_comp }\OtherTok{\textless{}{-}}\NormalTok{ measles }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(school) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{m\_i =} \FunctionTok{unique}\NormalTok{(mi),}
+    \AttributeTok{M\_i =} \FunctionTok{unique}\NormalTok{(Mitotal),}
+    \AttributeTok{samp\_weight =}\NormalTok{ (N }\SpecialCharTok{*}\NormalTok{ M\_i) }\SpecialCharTok{/}\NormalTok{ (n }\SpecialCharTok{*}\NormalTok{ m\_i)}
+\NormalTok{  )}
+\FunctionTok{print}\NormalTok{(weights\_comp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 4
+##    school   m_i   M_i samp_weight
+##     <dbl> <dbl> <dbl>       <dbl>
+##  1      1    40    78        8.97
+##  2      2    38   238       28.8 
+##  3      3    19   261       63.2 
+##  4      4    30   174       26.7 
+##  5      5    30   236       36.2 
+##  6      6    25   188       34.6 
+##  7      7    23   113       22.6 
+##  8      8    43   170       18.2 
+##  9      9    38   296       35.8 
+## 10     10    21   207       45.3
+\end{verbatim}
+
+\vspace{1em}
+\item \textbf{Estimate the overall percentage of parents who received a consent form along with a $95\%$ CI.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Revising the dataset}
+\NormalTok{measles\_new }\OtherTok{\textless{}{-}}\NormalTok{ measles }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{form =} \FunctionTok{ifelse}\NormalTok{(form }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+    \AttributeTok{weight =}\NormalTok{ measles\_weights}\SpecialCharTok{$}\NormalTok{samp\_weight}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{returnf, }\SpecialCharTok{{-}}\NormalTok{consent, }\SpecialCharTok{{-}}\NormalTok{hadmeas, }\SpecialCharTok{{-}}\NormalTok{previmm, }\SpecialCharTok{{-}}\NormalTok{sideeff, }\SpecialCharTok{{-}}\NormalTok{gp, }\SpecialCharTok{{-}}\NormalTok{noshot, }
+         \SpecialCharTok{{-}}\NormalTok{notser, }\SpecialCharTok{{-}}\NormalTok{gpadv, }\SpecialCharTok{{-}}\NormalTok{Mitotal, }\SpecialCharTok{{-}}\NormalTok{mi)}
+
+\CommentTok{\# Defining the survey design}
+\NormalTok{design }\OtherTok{\textless{}{-}} \FunctionTok{svydesign}\NormalTok{(}
+  \AttributeTok{id =} \SpecialCharTok{\textasciitilde{}}\NormalTok{school,}
+  \AttributeTok{weights =} \SpecialCharTok{\textasciitilde{}}\NormalTok{weight,}
+  \AttributeTok{data =}\NormalTok{ measles\_new}
+\NormalTok{)}
+
+\CommentTok{\# Estimating overall percentage of parents who received the form (with 95\%}
+\CommentTok{\  CI)}
+\NormalTok{cluster\_prop }\OtherTok{\textless{}{-}} \FunctionTok{svymean}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{form, design)}
+\NormalTok{cluster\_prop1 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(cluster\_prop)}
+\NormalTok{cluster\_prop\_ci }\OtherTok{\textless{}{-}} \FunctionTok{confint}\NormalTok{(cluster\_prop, }\AttributeTok{level =} \FloatTok{0.95}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Estimate: "}\NormalTok{, }\FunctionTok{round}\NormalTok{(cluster\_prop}\SpecialCharTok{*}\DecValTok{100}\NormalTok{, }\DecValTok{4}\NormalTok{), }\StringTok{"\%"}\NormalTok{, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"95\% CI: "}\NormalTok{, }\FunctionTok{round}\NormalTok{(cluster\_prop\_ci, }\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Estimate:  90.9092 %
+## 95% CI:  0.8731 0.945
+\end{verbatim}
+
+\newpage
+\vspace{1em}
+\item \textbf{How do your estimate and interval in part (c) compare with the results you would have obtained if you had ignored the clustering and analyzed the data as an SRS?} 
+
+\vspace{0.1em}
+\textbf{Find the ratio:
+\[
+\frac{\text{estimated variance from (c)}}{\text{estimated variance if the data were analyzed as an SRS}}
+\]}
+
+\vspace{0.1em}
+\textbf{What is the effect of clustering?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OtherTok{=} \FunctionTok{nrow}\NormalTok{(measles\_new)}
+\NormalTok{N }\OtherTok{=} \DecValTok{9962}
+
+\CommentTok{\# Computing the estimated variance using cluster sampling}
+\NormalTok{cluster\_v\_hat }\OtherTok{\textless{}{-}}\NormalTok{ (cluster\_prop1}\SpecialCharTok{$}\NormalTok{form)}\SpecialCharTok{\^{}}\DecValTok{2} \CommentTok{\# \textquotesingle{}SE\textquotesingle{} has been renamed to \textquotesingle{}form\textquotesingle{}}
+\CommentTok{\                                           in the cluster\_prop dataframe}
+
+\CommentTok{\# Computing the estimated variance using SRSWOR}
+\NormalTok{srs\_prop }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(measles\_new}\SpecialCharTok{$}\NormalTok{form)}\SpecialCharTok{/}\NormalTok{n}
+\NormalTok{srs\_v\_hat }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ n}\SpecialCharTok{/}\NormalTok{N)}\SpecialCharTok{*}\NormalTok{(srs\_prop}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ srs\_prop))}\SpecialCharTok{/}\NormalTok{(n }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Computing the ratio}
+\NormalTok{ratio }\OtherTok{=}\NormalTok{ cluster\_v\_hat }\SpecialCharTok{/}\NormalTok{ srs\_v\_hat}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Ratio: "}\NormalTok{, }\FunctionTok{round}\NormalTok{(ratio, }\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Ratio:  1.3706
+\end{verbatim}
+
+\vspace{0.5em}
+Since the ratio is greater than 1, this means that the estimated variance computed under cluster sampling is greater than the estimated variance computed under SRSWOR. In general, while it is often more convenient and less costly, \textbf{cluster sampling generates estimators with a greater variance than estimators under SRSWOR}.
+
+\end{enumerate}
+
+\end{document}
