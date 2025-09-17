@@ -1,0 +1,695 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+
+\documentclass[]{article}
+\usepackage{graphicx, enumitem, cancel, fancyhdr} 
+\usepackage[a4paper, margin=1.25in]{geometry}
+\pagestyle{fancy}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+
+\setlength{\headheight}{15pt}
+\lhead{2nd Sem, A.Y. 2024-2025}
+\chead{Stat 138: Problem Set 2}
+\rhead{Amores}
+
+\title{Stat 138: Introduction to Sampling Designs \\ Problem Set 2}
+\author{Anne Christine Amores}
+\date{March 21, 2025}
+
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Household Energy Use}
+
+Suppose that a city has 90,000 dwelling units, of which 35,000 are houses, 45,000 are apartments, and 10,000 are condominiums. 
+
+\begin{enumerate}[label=(\alph*)]
+
+\item \textbf{You believe that the mean electricity usage is about twice as much for houses as for apartments or condominiums, and that the standard deviation is proportional to the mean so that $S_1$ = 2$S_2$ = 2$S_3$. How would you allocate a stratified sample of 900 observations if you wanted to estimate the mean electricity consumption for all households in the city?} \\
+\\
+To allocate the 900 observations optimally, we use \textbf{Neyman allocation}, which accounts for both stratum size and varaibility. Given that the standard deviations are proportional to the means, such that $S_1 = 2S_2 = 2S_3$, the allocation formula we will use is:
+\[
+n_h = \frac{N_hS_h}{\sum_{h=1}^{H}{N_hS_h}}\cdot n
+\]
+where $N_1 = 35,000, N_2 = 45,000, N_3 = 10,000.$
+Computing for $N_hS_h$ for all three strata,
+\[
+N_1S_1 = 35,000 \cdot2S = 70,000S
+\]
+\[
+N_2S_2 = 45,000 \cdot S = 45,000S
+\]
+\[
+N_3S_3 = 10,000 \cdot S = 10,000S
+\]
+Summing up the $N_hS_h$ for all three strata,
+\[
+\sum_{h=1}^{3}{N_hS_h} = 70,000S + 45,000S + 10,000S = 125,000S
+\]
+Computing $n_h$ for all three strata:
+\[
+n_1 = \frac{N_1S_1}{\sum_{h=1}^{3}{N_hS_h}} \cdot n = \frac{70,000S}{125,000S} \cdot 900 = \fbox{504} 
+\]
+\[
+n_2 = \frac{N_2S_2}{\sum_{h=1}^{3}{N_hS_h}} \cdot n = \frac{45,000S}{125,000S} \cdot 900 = \fbox{324} 
+\]
+\[
+n_3 = \frac{N_3S_3}{\sum_{h=1}^{3}{N_hS_h}} \cdot n = \frac{10,000S}{125,000S} \cdot 900 = \fbox{72} 
+\]
+Thus, the allocation of the stratified sample of 900 observations would be as follows: \textbf{504 houses, 324 apartments, and 72 condos.} 
+\item \textbf{Now suppose that you take a stratified random sample with proportional allocation and want to estimate the overall proportion of households in which energy conservation is practiced. If 45\% of house dwellers, 25\% of apartment dwellers, and 3\% of condominium residents practice energy conservation, what is $p$ for the population? What gain would the stratified sample with proportional allocation offer over an SRS, that is, what is $V_{prop}(\hat p_{str})/V_{srs}(\hat p_{SRS})$?}  \\
+\\
+The variance of $\hat p_{str}$ is given by
+\[
+V_(\hat p_{str}) = \sum_{h=1}^{H}\left(\frac{N_h}{N}\right)^2\left(\frac{N_h - n_h}{N_h -1}\right)\frac{p_h(1- p_h)}{n_h -1}
+\]
+\[
+\rightarrow V(\hat p_{str}) = \left(\frac{N_1}{N}\right)^2\left(\frac{N_1 - n_1}{N_1 -1}\right)\frac{ p_1(1- p_1)}{n_1 -1} + \left(\frac{N_2}{N}\right)^2\left(\frac{N_2 - n_2}{N_2 -1}\right)\frac{p_2(1- p_2)}{n_2 -1}
+\]
+\[
++\left(\frac{N_3}{N}\right)^2\left(\frac{N_3 - n_3}{N_3 -1}\right)\frac{p_3(1- p_3)}{n_3 -1} 
+\]
+Setting $n = 900$ then, under proportional allocation, we have the same values for $n_1$, $n_2$, and $n_3$ as in item 1(a).
+\[
+V_(\hat p_{str}) = \left(\frac{35,000}{90,000}\right)^2\left(\frac{35,000 - 504}{35,000 -1}\right)\frac{0.45(0.55)}{504 -1} + \left(\frac{45,000}{90,000}\right)^2\left(\frac{45,000 - 324}{45,000 -1}\right)\frac{0.25(0.75)}{324 -1} 
+\]
+\[
++\left(\frac{10,000}{90,000}\right)^2\left(\frac{10,000 - 72}{10,000 -1}\right)\frac{0.03(0.97)}{72 -1}  
+\]
+\[
+\rightarrow V(\hat p_{str}) = 0.0002224513576 \approx 0.000222
+\]
+On the other hand, using SRSWOR, for large populations, 
+\[
+V(\hat p_{SRS}) = \frac{N-n}{n-1}\frac{p(1-p)}{n}
+\]
+The problem says that 45\% of house dwellers, 25\% of apartment dwellers, and 3\% of condominium residents practice energy conservation. If these proportions can be assumed to be true for the population, then 
+\[
+p = \frac{35,000}{90,000}(0.45) + \frac{45,000}{90,000}(0.25) + \frac{10,000}{90,000}(0.03)
+\]
+\[
+\rightarrow p = \frac{91}{300}
+\]
+\[
+\rightarrow V(\hat p_{SRS}) = \frac{90,000-900}{90,000-1}\frac{\frac{91}{300}(1-\frac{91}{300})}{900}
+\]
+\[
+\rightarrow V(\hat p_{SRS}) = 0.0002324570273 \approx 0.000232.
+\]
+Thus, 
+\[
+\frac{V_{prop}(\hat p_{str})}{V_{srs}(\hat p_{SRS})} \approx \frac{0.000222}{0.000232} \fbox{\approx 0.9569}.
+\]
+This tells us that you only need a fraction of the sample size in an SRS to achieve the same precision with a stratified sample. Specifically, only approximately $0.9569n$ observations are needed in a stratified sample using proportional allocation to get the same variance as in a SRSWOR. 
+\end{enumerate}
+
+\section{Optimizing survey sample size}
+
+A public opinion researcher has a budget of \$20,000 for taking a survey. She knows that 90\% of all households have telephones. Telephone interviews cost \$10 per household: in-person interviews cost \$30 each if all interviews are conducted in person, and \$40 each if only nonphone households are interviewed in person (because there will be extra travel costs). Assume that the variances in the phone and nonphone groups are similar, and that the fixed costs are $c_0 = \$5000$. How many households should be interviewed in each group if 
+
+\begin{enumerate}[label=(\alph*)]
+
+\item \textbf{all households are interviewed in person}
+
+The \$20,000 budget has to be allocated to the fixed cost and the cost per interview. In this case, since all households will be interviewed in person, the cost per in-person interview is \$30 each. Setting up an equation to determine how many households can be interviewed considering the budget,
+\[
+20,000 = 30n - 500
+\]
+\[
+30n = 15,000
+\]
+\[
+n = 500
+\]
+
+Because of the assumption that the variances in the phone and nonphone groups are similar, we can make use of \textbf{proportional allocation}. The problem states that 90\% of the households have a phone. It follows that 10\% do not. Thus, we multiply $0.9$ and $0.1$ to the obtained number of households, $n=500$, to determine how many households are to be interviewed in each group.
+
+Let $n_1$ be the number of phone households to be interviewed and $n_2$ be the number of nonphone households to be interviewed. By proportional allocation, 
+
+\[
+n_1 = 500 \cdot 0.9 = \fbox{450}
+\]
+\[
+n_2 = 500 \cdot 0.1 = \fbox{50}
+\]
+Thus, the researcher can interview 450 phone households and 50 nonphone households, given the budget of \$20,000.
+\item \textbf{households with a phone are contacted by telephone and households without a phone are contacted in person}
+\[
+n_h = \frac{\frac{N_hS_h}{\sqrt{c_h}}}{\sum_{h=1}^{H}{\frac{N_hS_h}{\sqrt{c_h}}}}n
+\]
+Since the variances of both groups are assumed to be similar, i.e., $S_1 = S_2 = S$, the equation simplifies to
+\[
+n_h = \frac{\frac{N_hS}{\sqrt{c_h}}}{\sum_{h=1}^{H}{\frac{N_hS}{\sqrt{c_h}}}}n
+\]
+\[
+\rightarrow n_h = \frac{\cancel S\frac{N_h}{\sqrt{c_h}}}{\cancel S\sum_{h=1}^{H}{\frac{N_h}{\sqrt{c_h}}}}n
+\]
+\[
+\rightarrow n_h = \frac{\frac{N_h}{\sqrt{c_h}}}{\sum_{h=1}^{H}{\frac{N_h}{\sqrt{c_h}}}}n
+\]
+Thus, the equation for the sample size of the stratum corresponding to the phone households is given by
+\[
+n_1 = \frac{\frac{N_1}{\sqrt{c_1}}}{\frac{N_1}{\sqrt{c_1}}+\frac{N_2}{\sqrt{c_2}}}n
+\]
+Since we know that 90\% of the households have a phone, then $\frac{N_1}{N}=0.9 \rightarrow N_1 = 0.9N$. In a similar fashion, $\frac{N_2}{N}=0.1 \rightarrow N_2 = 0.1N$. Also, we know that telephone interviews cost $\$10$ per household and in-person interviews cost $\$40$ each because only nonphone households will be interviewed in person. Thus, $c_1 = 10$ and $c_2 = 40$. Substituting these into the equation for $n_1$,
+\[
+n_1 = \frac{\frac{N_1}{\sqrt{c_1}}}{\frac{N_1}{\sqrt{c_1}}+\frac{N_2}{\sqrt{c_2}}}n = \frac{\frac{0.9N}{\sqrt{10}}}{\frac{0.9N}{\sqrt{10}}+\frac{0.1N}{\sqrt{40}}}n
+\]
+\[
+\rightarrow n_1 = \frac{\cancel N\frac{0.9}{\sqrt{10}}}{\cancel N\left(\frac{0.9}{\sqrt{10}}+\frac{0.1}{\sqrt{40}}\right)}n
+\]
+\[
+\rightarrow n_1 = \frac{18}{19}n.
+\]
+And since there are only two strata,
+\[
+n_2 = n - n_1
+\]
+\[
+\rightarrow n_2 = n - \frac{18}{19}n = n\left(1-\frac{18}{19}\right) = \frac{1}{19}n.
+\]
+To determine the sample size, $n$, we use the following equation, which represents the total cost constraint based on the budget and the costs of telephone and in-person interviews:
+\[
+15,000 = 10n_1 +40n_2
+\]
+\[
+\rightarrow 15,000 = 10\left(\frac{18}{19}n\right) + 40\left(\frac{1}{19}n\right)
+\]
+\[
+\rightarrow 15,000 = n\left(10\cdot\frac{18}{19} + 40\cdot\frac{1}{19}\right)
+\]
+\[
+\rightarrow 15,000 = \frac{220}{19}n
+\]
+\[
+\rightarrow n = 1295.454545 \approx 1295,
+\]
+rounded down in consideration of the budget constraint. Then, computing for $n_1$ and $n_2$, 
+\[
+n_1 = \frac{18}{19}n = \frac{18}{19}\cdot1295 = 1226.842105 \approx \fbox{1227}
+\]
+\[
+n_2 = \frac{1}{19}n = \frac{1}{19}\cdot1295 = 68.15789474 \approx \fbox{68}
+\]
+Thus, if households with a phone are contacted by telephone and households without a phone are contacted in person, the researcher can interview \textbf{1228} of the phone households and \textbf{68} of the nonphone households. 
+\end{enumerate}
+\section{Trucks}
+
+The Vehicle Inventory and Use Survey (VIUS) has been conducted by the U.S. government to provide information on the number of private and commercial trucks in each state. The stratified random sampling design is described in the U.S. Census Bureau (2006b). For the 2002 survey, 255 strate were formed from the sampling frame of truck registrations using stratification variables \textit{state} and \textit{trucktype}. The 50 states plus the District of Columbia formed 51 geographic classes; in each, the truck registrations were partitioned into one of five classes: 
+
+\begin{enumerate}
+
+\item Pickups
+\item Minivans, other light vans, and sport utility vehicles
+\item Light single-unit trucks with gross vehicle weight less than 26,000 pounds
+\item Heavy single-unit trucks with gross vehicle weight greater than or equal to 26,000 pounds
+\item Truck-tractors
+
+\end{enumerate}
+
+Consequently, the full data set has 51 x 5 = 255 strata. Selected variables from the data are in the data file vius.dat. For each question below, give a point estimate and a 95\% CI. 
+
+\begin{enumerate}[label=(\alph*)]
+
+\item \textbf{The sampling weights are found in variable \textit{tabtrucks} and the stratification is given by variable \textit{stratum}. Estimate the total number of trucks in the United States. (HINT: What should your response variable be?) Why is the standard deviation of your estimator essentially zero?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vius\_data}\OtherTok{\textless{}{-}}\FunctionTok{read\_excel}\NormalTok{(}\AttributeTok{path =}
+                    \StringTok{"C:/Users/amore\_6ou078y/OneDrive/Documents/vius.xlsx"}\NormalTok{, }
+                    \AttributeTok{col\_names=}\ConstantTok{TRUE}\NormalTok{,}
+                    \AttributeTok{trim\_ws=}\ConstantTok{TRUE}\NormalTok{) }
+                         
+\FunctionTok{head}\NormalTok{(vius\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 27
+##   STRATUM ADM_STATE STATE TRUCKTYPE TABTRUCKS HB_STATE BODYTYPE ADM_MODELYEAR
+##     <dbl>     <dbl> <chr>     <dbl>     <dbl> <chr>       <dbl>         <dbl>
+## 1      11         1 AL            1     3626. AL              1             7
+## 2      11         1 AL            1     3626. AL              1            16
+## 3      11         1 AL            1     3626. AL              1             5
+## 4      11         1 AL            1     3626. AL              1             3
+## 5      11         1 AL            1     3626. AL              1            16
+## 6      11         1 AL            1     3626. AL              1             5
+## # i 19 more variables: VIUS_GVW <dbl>, MILES_ANNL <dbl>, MILES_LIFE <dbl>,
+## #   MPG <chr>, OPCLASS <dbl>, OPCLASS_MTR <chr>, OPCLASS_OWN <chr>,
+## #   OPCLASS_PSL <chr>, OPCLASS_PVT <chr>, OPCLASS_RNT <chr>, TRANSMSSN <dbl>,
+## #   TRIP_PRIMARY <dbl>, TRIP0_50 <chr>, TRIP051_100 <chr>, TRIP101_200 <chr>,
+## #   TRIP201_500 <chr>, TRIP500MORE <chr>, ADM_MAKE <dbl>, BUSINESS <dbl>
+\end{verbatim} \\
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Computing the total estimate (t\_hat)}
+\NormalTok{t\_hat }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(vius\_data}\SpecialCharTok{$}\NormalTok{TABTRUCKS, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Computing sample size (n\_h) and population size (N\_h) per stratum}
+\NormalTok{strata\_summary }\OtherTok{\textless{}{-}}\NormalTok{ vius\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(STRATUM) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n\_h =} \FunctionTok{n}\NormalTok{(),}
+            \AttributeTok{N\_h =} \FunctionTok{sum}\NormalTok{(TABTRUCKS, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+            \AttributeTok{s\_h2 =} \FunctionTok{var}\NormalTok{(TABTRUCKS, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+
+\CommentTok{\# Computing the standard deviation}
+\NormalTok{std\_error }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(vius\_data}\SpecialCharTok{$}\NormalTok{TABTRUCKS, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(vius\_data))}
+
+\CommentTok{\# Computing the stratified variance}
+\NormalTok{var\_t\_hat }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{((strata\_summary}\SpecialCharTok{$}\NormalTok{N\_h}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{/}\NormalTok{ strata\_summary}\SpecialCharTok{$}\NormalTok{n\_h) }\SpecialCharTok{*}
+    \NormalTok{ strata\_summary}\SpecialCharTok{$}\NormalTok{s\_h2, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{SE\_t\_hat }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(var\_t\_hat)}
+
+\CommentTok{\# Computing a 95\% CI }
+\NormalTok{lower\_CI }\OtherTok{\textless{}{-}}\NormalTok{ t\_hat }\SpecialCharTok{{-}} \FloatTok{1.96} \SpecialCharTok{*}\NormalTok{ SE\_t\_hat}
+\NormalTok{upper\_CI }\OtherTok{\textless{}{-}}\NormalTok{ t\_hat }\SpecialCharTok{+} \FloatTok{1.96} \SpecialCharTok{*}\NormalTok{ SE\_t\_hat}
+
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Estimated total of trucks in the United States:"}\NormalTok{, t\_hat, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Standard error of the estimator:"}\NormalTok{, SE\_t\_hat, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"95: CI: ["}\NormalTok{, lower\_CI, }\StringTok{","}\NormalTok{, upper\_CI, }\StringTok{"]}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Estimated total of trucks in the United States: 85174776
+## Standard error of the estimator: 0
+## 95: CI: [ 85174776 , 85174776 ]
+\end{verbatim}
+
+The standard deviation of $\hat t$ is essentially zero because the variable \textit{tabtrucks} represents weights for the entire population, not just a sample. And since we are summing these weights, the estimate is already scaled to the full population, leaving little variability in the estimator. 
+
+
+\item \textbf{Estimate the total number of truck miles driven in 2002 (variable \textit{miles\_annl}).}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Estimating the total number of truck miles driven in 2002}
+\NormalTok{t\_hat\_miles }\OtherTok{=} \FunctionTok{sum}\NormalTok{(vius\_data}\SpecialCharTok{$}\NormalTok{MILES\_ANNL }\SpecialCharTok{*}\NormalTok{ vius\_data}\SpecialCharTok{$}\NormalTok{TABTRUCKS, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{options}\NormalTok{(}\AttributeTok{scipen =} \DecValTok{999}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Estimated total truck miles driven in 2002:"}\NormalTok{, }\FunctionTok{format}\NormalTok{(t\_hat\_miles, }
+    \AttributeTok{big.mark =} \StringTok{","}\NormalTok{, }\AttributeTok{scientific =} \ConstantTok{FALSE}\NormalTok{), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# Computing standard error (SE)}
+\NormalTok{se\_t\_hat }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{((vius\_data}\SpecialCharTok{$}\NormalTok{MILES\_ANNL }\SpecialCharTok{*}\NormalTok{ vius\_data}\SpecialCharTok{$}\NormalTok{TABTRUCKS)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{, }
+    \AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+
+\CommentTok{\# Computing the margin of error for 95\% CI}
+\NormalTok{z\_alpha }\OtherTok{\textless{}{-}} \FloatTok{1.96}
+\NormalTok{margin\_of\_error }\OtherTok{\textless{}{-}}\NormalTok{ z\_alpha }\SpecialCharTok{*}\NormalTok{ se\_t\_hat}
+
+\CommentTok{\# Computing 95\% CI}
+\NormalTok{lower\_CI }\OtherTok{\textless{}{-}}\NormalTok{ t\_hat\_miles }\SpecialCharTok{{-}}\NormalTok{ margin\_of\_error}
+\NormalTok{upper\_CI }\OtherTok{\textless{}{-}}\NormalTok{ t\_hat\_miles }\SpecialCharTok{+}\NormalTok{ margin\_of\_error }
+
+
+\FunctionTok{options}\NormalTok{(}\AttributeTok{scipen =} \DecValTok{999}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Estimated total truck miles driven in 2002:"}\NormalTok{, }\FunctionTok{format}\NormalTok{(t\_hat\_miles, }
+    \AttributeTok{big.mark =} \StringTok{","}\NormalTok{, }\AttributeTok{scientific =} \ConstantTok{FALSE}\NormalTok{), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"95\% CI: ["}\NormalTok{, }\FunctionTok{format}\NormalTok{(lower\_CI, }\AttributeTok{big.mark =} \StringTok{","}\NormalTok{, }\AttributeTok{scientific =} \ConstantTok{FALSE}\NormalTok{),}
+    \StringTok{","}\NormalTok{, }\FunctionTok{format}\NormalTok{(upper\_CI, }\AttributeTok{big.mark =} \StringTok{","}\NormalTok{, }\AttributeTok{scientific =} \ConstantTok{FALSE}\NormalTok{), }\StringTok{"]}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Estimated total truck miles driven in 2002: 1,114,727,883,443
+## 95% CI: [ 1,092,865,546,984 , 1,136,590,219,902 ]
+\end{verbatim}
+
+\item \textbf{Estimate the total number of truck miles driven in each of the five \textit{trucktype} classes.}
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Estimating the total number of truck miles driven in each of the five} 
+\CommentTok{trucktype classes}
+\NormalTok{total\_miles\_by\_trucktype }\OtherTok{\textless{}{-}}\NormalTok{ vius\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(TRUCKTYPE) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{estimated\_total\_miles =} \FunctionTok{sum}\NormalTok{(MILES\_ANNL }\SpecialCharTok{*}\NormalTok{ TABTRUCKS, }
+    \AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ungroup}\NormalTok{()}
+
+
+\CommentTok{\# Adding a column for the 95\% CIs}
+\NormalTok{total\_miles\_by\_trucktype }\OtherTok{\textless{}{-}}\NormalTok{ total\_miles\_by\_trucktype }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{lower\_CI =}\NormalTok{ estimated\_total\_miles }\SpecialCharTok{{-}}\NormalTok{ (}\FloatTok{1.96} \SpecialCharTok{*}\NormalTok{ (}\FunctionTok{sd}\NormalTok{(estimated\_total\_miles) }\SpecialCharTok{/}
+        \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{n}\NormalTok{()))),}
+    \AttributeTok{upper\_CI =}\NormalTok{ estimated\_total\_miles }\SpecialCharTok{+}\NormalTok{ (}\FloatTok{1.96} \SpecialCharTok{*}\NormalTok{ (}\FunctionTok{sd}\NormalTok{(estimated\_total\_miles) }\SpecialCharTok{/}
+        \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{n}\NormalTok{())))}
+\NormalTok{  )}
+
+\FunctionTok{print}\NormalTok{(total\_miles\_by\_trucktype)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 4
+##   TRUCKTYPE estimated_total_miles lower_CI      upper_CI
+##       <dbl>                 <dbl>    <dbl>         <dbl>
+## 1         1         428294502082.  2.16e11 641043144761.
+## 2         2         541099850893.  3.28e11 753848493572.
+## 3         3          41279084490. -1.71e11 254027727169.
+## 4         4          31752656137. -1.81e11 244501298816.
+## 5         5          72301789843. -1.40e11 285050432522.
+\end{verbatim}
+
+\item \textbf{Estimate the average miles per gallon (MPG) for the trucks in the population.}
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Estimating the average miles per gallon (MPG) for the trucks in the} 
+\CommentTok{population}
+\NormalTok{vius\_data}\SpecialCharTok{$}\NormalTok{MPG }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(vius\_data}\SpecialCharTok{$}\NormalTok{MPG)}
+\NormalTok{avg\_mpg }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{sum}\NormalTok{(vius\_data}\SpecialCharTok{$}\NormalTok{MPG }\SpecialCharTok{*}\NormalTok{ vius\_data}\SpecialCharTok{$}\NormalTok{TABTRUCKS, }
+    \AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(vius\_data}\SpecialCharTok{$}\NormalTok{TABTRUCKS, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\CommentTok{\# Computing standard deviation and sample size }
+\NormalTok{sd\_mpg }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(vius\_data}\SpecialCharTok{$}\NormalTok{MPG, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{n\_mpg }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(vius\_data}\SpecialCharTok{$}\NormalTok{MPG))}
+
+\CommentTok{\# Computing standard error (SE) and 95\% CI }
+\NormalTok{se\_mpg }\OtherTok{\textless{}{-}}\NormalTok{ sd\_mpg }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n\_mpg)}
+\NormalTok{lower\_ci }\OtherTok{\textless{}{-}}\NormalTok{ avg\_mpg }\SpecialCharTok{{-}}\NormalTok{ (}\FloatTok{1.96} \SpecialCharTok{*}\NormalTok{ se\_mpg)}
+\NormalTok{upper\_ci }\OtherTok{\textless{}{-}}\NormalTok{ avg\_mpg }\SpecialCharTok{+}\NormalTok{ (}\FloatTok{1.96} \SpecialCharTok{*}\NormalTok{ se\_mpg)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Average miles per gallon (MPG) for the trucks in the population:"}\NormalTok{,} 
+    \NormalTok{avg\_mpg, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"95\% CI:["}\NormalTok{, lower\_ci, }\StringTok{","}\NormalTok{, upper\_CI, }\StringTok{"]}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Average miles per gallon (MPG) for the trucks in the population: 13.43274
+## 95% CI:[ 13.39429 , 1136590219902 ]
+\end{verbatim}
+
+\end{enumerate}
+
+\section{Baseball data}
+
+Exercise 32 of Chapter 2 described the population of baseball players in data file baseball.dat.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item \textbf{Take a stratified random sample of 150 players from the file, using proportional allocation with the different teams as strata. Describe how you selected the sample.}
+
+Importing the dataset, 
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{baseballdata}\OtherTok{\textless{}{-}}\FunctionTok{read\_excel}\NormalTok{(}\AttributeTok{path =} 
+            \StringTok{"C:/Users/amore\_6ou078y/OneDrive/Documents/baseball.xlsx"}\NormalTok{, }
+            \AttributeTok{col\_names=}\FunctionTok{c}\NormalTok{(}\StringTok{"team"}\NormalTok{, }\StringTok{"leagueID"}\NormalTok{, }\StringTok{"player"}\NormalTok{, }\StringTok{"salary"}\NormalTok{, }\StringTok{"POS"}\NormalTok{, }\StringTok{"G"}\NormalTok{, }
+            \StringTok{"GS"}\NormalTok{, }\StringTok{"InnOuts"}\NormalTok{, }\StringTok{"PO"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"E"}\NormalTok{, }\StringTok{"DP"}\NormalTok{, }\StringTok{"PB"}\NormalTok{, }\StringTok{"GB"}\NormalTok{, }\StringTok{"AB"}\NormalTok{, }\StringTok{"R"}\NormalTok{, }
+            \StringTok{"H"}\NormalTok{, }\StringTok{"SecB"}\NormalTok{, }\StringTok{"ThiB"}\NormalTok{, }\StringTok{"HR"}\NormalTok{, }\StringTok{"RBI"}\NormalTok{, }\StringTok{"SB"}\NormalTok{, }\StringTok{"CS"}\NormalTok{, }\StringTok{"BB"}\NormalTok{, }\StringTok{"SO"}\NormalTok{, }
+            \StringTok{"IBB"}\NormalTok{, }\StringTok{"HBP"}\NormalTok{, }\StringTok{"SH"}\NormalTok{, }\StringTok{"SF"}\NormalTok{, }\StringTok{"GIDP"}\NormalTok{), }
+            \AttributeTok{trim\_ws=}\ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(baseballdata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 30
+##   team  leagueID player salary POS       G    GS InnOuts    PO     A     
+##   <chr> <chr>    <chr>   <dbl> <chr> <dbl> <dbl>   <dbl> <dbl> <dbl> 
+## 1 ANA   AL       ander~ 6.20e6 CF      112    92    2375   211     5     
+## 2 ANA   AL       colon~ 1.10e7 P         3    34     625     8    30     
+## 3 ANA   AL       davan~ 3.75e5 CF      108    27     743    75     1     
+## 4 ANA   AL       donne~ 3.75e5 P         5     0     126     2     2     
+## 5 ANA   AL       eckst~ 2.15e6 SS      142   136    3575   198   309     
+## 6 ANA   AL       ersta~ 7.75e6 1B      125   124    3196   986    66     
+## # i 20 more variables: E <dbl>, DP <dbl>, PB <chr>, GB <dbl>, 
+## #   AB <dbl>, R <dbl>, H <dbl>, SecB <dbl>, ThiB <dbl>, HR <dbl>, 
+## #   RBI <dbl>, SB <dbl>, CS <dbl>, BB <dbl>, SO <dbl>, IBB <chr>, 
+## #   HBP <chr>, SH <dbl>, SF <chr>, GIDP <dbl>
+\end{verbatim} 
+
+\hspace{0.5pt}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Computing the number of players per team (Nh)}
+\NormalTok{Nh }\OtherTok{\textless{}{-}}\NormalTok{ baseballdata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(team, }\AttributeTok{name =} \StringTok{"Nh"}\NormalTok{)}
+
+\CommentTok{\# Computing the standard deviation of salary per team (Sh)}
+\NormalTok{Sh }\OtherTok{\textless{}{-}}\NormalTok{ baseballdata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(team) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Sh =} \FunctionTok{sd}\NormalTok{(salary, }
+    \AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ungroup}\NormalTok{()}
+
+\CommentTok{\# Merging Nh and Sh into one data frame and dropping rows w/ missing values}
+\NormalTok{NhSh }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(Nh, Sh, }\AttributeTok{by =} \StringTok{"team"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{drop\_na}\NormalTok{(Sh)}
+
+\CommentTok{\# Defining the sample sizes based on proportional allocation}
+\NormalTok{total\_sample\_size }\OtherTok{\textless{}{-}} \DecValTok{150}
+\NormalTok{NhSh }\OtherTok{\textless{}{-}}\NormalTok{ NhSh }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sample\_size =} \FunctionTok{round}\NormalTok{(Nh }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(Nh) }\SpecialCharTok{*}\NormalTok{ total\_sample\_size))}
+
+\CommentTok{\# Sorting data by the stratification variable (team)}
+\NormalTok{baseballdata }\OtherTok{\textless{}{-}} \FunctionTok{arrange}\NormalTok{(baseballdata, team)}
+
+\CommentTok{\# Drawing a stratified sample using SRSWOR}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{138}\NormalTok{)}
+\NormalTok{strat\_sample }\OtherTok{\textless{}{-}} \FunctionTok{strata}\NormalTok{(baseballdata, }\AttributeTok{stratanames =} \FunctionTok{c}\NormalTok{(}\StringTok{"team"}\NormalTok{), }
+    \AttributeTok{size =}\NormalTok{ NhSh}\SpecialCharTok{$}\NormalTok{sample\_size, }\AttributeTok{method =} \StringTok{"srswor"}\NormalTok{)}
+
+\CommentTok{\# Extracting the sampled data}
+\NormalTok{baseball\_sample }\OtherTok{\textless{}{-}} \FunctionTok{getdata}\NormalTok{(baseballdata, strat\_sample)}
+
+\FunctionTok{head}\NormalTok{(baseball\_sample)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\begin{verbatim}
+##    leagueID   player   salary POS   G  GS InnOuts  PO  A E DP PB  GB  AB   R
+## 10       AL greggke0   301500   P   5   0     263   2  5 0  1  .   5   0   0
+## 11       AL guerrvl0 11000000  RF 156 143    3702 308 13 9  2  . 156 612 124
+## 16       AL molinbe0  2025000   C  97  89    2286 597 56 3  5  6  97 337  36
+## 22       AL salmoti0  9900000  RF  60   5     117  15  1 0  0  .  60 186  15
+## 25       AL washbja0  5450000   P   3  25     448   3 22 1  2  .   3   5   0
+## 27       NL alomaro0  1000000  2B  38  23     610  48 53 3 10  .  38 110  14
+##      H SecB ThiB HR RBI SB CS BB SO IBB HBP SH SF GIDP team ID_unit      Prob
+## 10   0    0    0  0   0  0  0  0  0   0   0  0  0    0  ANA      10 0.1923077
+## 11 206   39    2 39 126 15  3 52 74  14   8  0  8   19  ANA      11 0.1923077
+## 16  93   13    0 10  54  0  1 18 35   1   2  2  4   18  ANA      16 0.1923077
+## 22  47    7    0  2  23  1  0 14 41   0   2  0  4    2  ANA      22 0.1923077
+## 25   2    0    0  0   1  0  0  0  0   0   0  2  0    0  ANA      25 0.1923077
+## 27  34    5    2  3  16  0  2 12 18   0   1  2  0    2  ARI      27 0.1785714
+##    Stratum
+## 10       1
+## 11       1
+## 16       1
+## 22       1
+## 25       1
+## 27       2
+\end{verbatim}
+
+As seen in the block of code above, a stratified random sample of 150 players was selected using proportional allocation, with teams as strata. First, the number of players per team $(N_h)$ and the standard deviation of salaries $(S_h)$ were computed. Then, the sample size for each team was determined based on its proportion in the total population. The dataset was sorted by team, and a simple random sample without replacement (SRSWOR) was drawn within each stratum to ensure proper representation.
+
+\item \textbf{Find the mean of the variable \textit{logsal}, using your stratified sample, and give a 95\% CI.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Adding logsal column}
+\NormalTok{baseball\_sample }\OtherTok{\textless{}{-}}\NormalTok{ baseball\_sample }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{ (}\AttributeTok{logsal =} \FunctionTok{log}\NormalTok{(salary))}
+
+\CommentTok{\# Computing mean and standard error}
+\NormalTok{logsal\_mean }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(baseball\_sample}\SpecialCharTok{$}\NormalTok{logsal, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{logsal\_sd }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(baseball\_sample}\SpecialCharTok{$}\NormalTok{logsal, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(baseball\_sample)}
+
+\CommentTok{\# Computing 95\% CI}
+\NormalTok{t\_value }\OtherTok{\textless{}{-}} \FunctionTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{, }\AttributeTok{df =}\NormalTok{ n }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }
+\NormalTok{margin\_error }\OtherTok{\textless{}{-}}\NormalTok{ t\_value }\SpecialCharTok{*}\NormalTok{ (logsal\_sd }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n))}
+\NormalTok{lower\_CI }\OtherTok{\textless{}{-}}\NormalTok{ logsal\_mean }\SpecialCharTok{{-}}\NormalTok{ margin\_error}
+\NormalTok{upper\_CI }\OtherTok{\textless{}{-}}\NormalTok{ logsal\_mean }\SpecialCharTok{+}\NormalTok{ margin\_error }
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Mean of logsal:"}\NormalTok{, logsal\_mean, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"95\% CI: ["}\NormalTok{, lower\_CI, }\StringTok{","}\NormalTok{, upper\_CI, }\StringTok{"]}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Mean of logsal: 13.82987}
+## 95% CI: [ 13.62726 , 14.03249 ]
+\end{verbatim}
+
+\item \textbf{Estimate the proportion of players in the data set who are pitchers, and give a 95\% CI.}
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Estimating the proportion of pitchers }
+\NormalTok{p\_hat }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(baseball\_sample}\SpecialCharTok{$}\NormalTok{POS }\SpecialCharTok{==} \StringTok{"P"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Sample size}
+
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(baseball\_sample)}
+
+\CommentTok{\# Population size }
+
+\NormalTok{N }\OtherTok{\textless{}{-}} \DecValTok{797} 
+
+\CommentTok{\# Getting the standard error with FPC }
+\NormalTok{SE }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{((}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ (n}\SpecialCharTok{/}\NormalTok{N)) }\SpecialCharTok{*}\NormalTok{ (p\_hat }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{ p\_hat)) }\SpecialCharTok{/}\NormalTok{ (n}\DecValTok{{-}1}\NormalTok{))}
+
+\CommentTok{\# Computing 95\% CI}
+\NormalTok{z\_alpha }\OtherTok{\textless{}{-}} \FloatTok{1.96}
+\NormalTok{lower\_CI }\OtherTok{\textless{}{-}}\NormalTok{ p\_hat }\SpecialCharTok{{-}}\NormalTok{ z\_alpha }\SpecialCharTok{*}\NormalTok{ SE}
+\NormalTok{upper\_CI }\OtherTok{\textless{}{-}}\NormalTok{ p\_hat }\SpecialCharTok{+}\NormalTok{ z\_alpha }\SpecialCharTok{*}\NormalTok{ SE}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Estimated proportion of pitchers in the population:"}\NormalTok{, p\_hat, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"95\% CI: ["}\NormalTok{, lower\_CI, }\StringTok{","}\NormalTok{, upper\_CI, }\StringTok{"]}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Estimated proportion of pitchers in the population: 0.5
+## 95% CI: [ 0.4276638 , 0.5723362 ]
+\end{verbatim}
+
+\skipitems{1}
+
+\item \textbf{Examine the sample variances in each stratum. Do you think optimal allocation would be worthwhile for this problem?} 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Computing sample variances in each stratum}
+\NormalTok{sample\_variances }\OtherTok{\textless{}{-}}\NormalTok{ baseball\_sample }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(team) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{variance\_logsal =} \FunctionTok{var}\NormalTok{(logsal, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\FunctionTok{head}\NormalTok{(sample\_variances)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   team  variance_logsal
+##   <chr>           <dbl>
+## 1 ANA             2.22 
+## 2 ARI             0.310
+## 3 ATL             3.45 
+## 4 BAL             0.175
+## 5 BOS             2.69 
+## 6 CHA             0.205
+\end{verbatim}
+
+It seems that proportional allocation wouldn't work well for this problem because it assumes similar variances across strata, and in this case, the sample variances of \textit{logsal} differ significantly across teams, ranging from roughly 0.004 to over 3.4. \textbf{Optimal allocation is worthwhile for this problem,} as it is better to use when variances differ significantly and it gives more samples to high-variance teams, improving estimate precision.
+
+\end{enumerate}
+
+
+\end{document}
