@@ -1,0 +1,365 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+
+\documentclass[]{article}
+\usepackage{graphicx, enumitem, cancel, fancyhdr, float} 
+\usepackage[a4paper, margin=1.25in]{geometry}
+\pagestyle{fancy}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+
+\setlength{\headheight}{15pt}
+\lhead{2nd Sem, A.Y. 2024-2025}
+\chead{Stat 138: Problem Set 3}
+\rhead{Amores}
+
+\title{Stat 138: Introduction to Sampling Designs \\ Problem Set 3}
+\author{Anne Christine Amores}
+\date{March 28, 2025}
+
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Average Age of Trees}
+
+Foresters want to estimate the average age of trees in a stand. Determining age is cumbersome, because one needs to count the tree rings on a core taken from the tree. In general, though, the older the tree, the larger the diameter, and diameter is easy to measure. The foresters measure the diameter of all 1132 trees and find that the population mean equals 10.3 They then randomly select 20 trees for age measurement. 
+
+\begin{table}[H]  % Use H to force the table to stay in place
+    \centering
+    \begin{tabular}{ccc | ccc}
+       \hline
+       Tree No. & Diameter, x & Age, y & Tree No. & Diameter, x & Age, y \\
+       \hline
+        1  & 12.0 & 125  & 11 & 5.7  & 61  \\
+        2  & 11.4 & 119  & 12 & 8.0  & 80  \\
+        3  & 7.9  & 83   & 13 & 10.3 & 114 \\
+        4  & 9.0  & 85   & 14 & 12.0 & 147 \\
+        5  & 10.5 & 99   & 15 & 9.2  & 122 \\
+        6  & 7.9  & 117  & 16 & 8.5  & 106 \\
+        7  & 7.3  & 69   & 17 & 7.0  & 82  \\
+        8  & 10.2 & 133  & 18 & 10.7 & 88  \\
+        9  & 11.7 & 154  & 19 & 9.3  & 97  \\
+        10 & 11.3 & 168  & 20 & 8.2  & 99  \\
+       \hline
+    \end{tabular}
+\end{table}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item \textbf{Draw a scatterplot of $y$ vs. $x$.}
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Creating the dataset}
+\NormalTok{diameter }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{12.0}\NormalTok{, }\FloatTok{11.4}\NormalTok{, }\FloatTok{7.9}\NormalTok{, }\FloatTok{9.0}\NormalTok{, }\FloatTok{10.5}\NormalTok{, }\FloatTok{7.9}\NormalTok{, }\FloatTok{7.3}\NormalTok{, }\FloatTok{10.2}\NormalTok{, }\FloatTok{11.7}\NormalTok{, }\FloatTok{11.3}\NormalTok{,}
+              \FloatTok{5.7}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{10.3}\NormalTok{, }\FloatTok{12.0}\NormalTok{, }\FloatTok{9.2}\NormalTok{, }\FloatTok{8.5}\NormalTok{, }\FloatTok{7.0}\NormalTok{, }\FloatTok{10.7}\NormalTok{, }\FloatTok{9.3}\NormalTok{, }\FloatTok{8.2}\NormalTok{)}
+
+\NormalTok{age }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{125}\NormalTok{, }\DecValTok{119}\NormalTok{, }\DecValTok{83}\NormalTok{, }\DecValTok{85}\NormalTok{, }\DecValTok{99}\NormalTok{, }\DecValTok{117}\NormalTok{, }\DecValTok{69}\NormalTok{, }\DecValTok{133}\NormalTok{, }\DecValTok{154}\NormalTok{, }\DecValTok{168}\NormalTok{,}
+         \DecValTok{61}\NormalTok{, }\DecValTok{80}\NormalTok{, }\DecValTok{114}\NormalTok{, }\DecValTok{147}\NormalTok{, }\DecValTok{122}\NormalTok{, }\DecValTok{106}\NormalTok{, }\DecValTok{82}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{97}\NormalTok{, }\DecValTok{99}\NormalTok{)}
+
+\CommentTok{\# Creating scatterplot }
+\FunctionTok{plot}\NormalTok{(diameter, age, }\AttributeTok{pch=}\DecValTok{1}\NormalTok{, }\AttributeTok{xlab=}\StringTok{"Diameter"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Age"}\NormalTok{, }
+     \AttributeTok{main=}\StringTok{"Scatterplot of Tree Age vs. Diameter"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{scatterplot1.pdf}
+
+\item \textbf{Estimate the population mean age of trees in the stand using ratio estimation and give an approximate standard error for your estimate.} \\
+Given: $N = 1132$, $\bar x_u = 10.3$ \\
+ \\
+Estimating $\bar y_u$ using ratio estimation,
+\[
+\hat{\bar y}_r = \frac{\bar y}{\bar x}\cdot\bar x_u, \tag{1} \label{yhatr}
+\]
+where $\bar y$ is the mean age of trees in the sample, and $\bar x$ is the mean diameter of trees in the sample.
+
+Using R to compute $\bar y$ and $\bar x$,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Computing the sample mean age of trees}
+\NormalTok{ybar }\OtherTok{=} \FunctionTok{mean}\NormalTok{(age)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Mean age of trees in the sample:"}\NormalTok{, ybar)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Mean age of trees in the sample: 107.4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Computing the sample mean diameter of trees}
+\NormalTok{xbar}\OtherTok{=} \FunctionTok{mean}\NormalTok{(diameter)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Mean diameter of trees in the sample"}\NormalTok{, xbar)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Mean diameter of trees in the sample 9.405
+\end{verbatim}
+
+Thus, $\bar y = 107.4$ and $\bar x = 9.405$.
+Plugging the values computed for $\bar y$ and $\bar x$ into \eqref{yhatr}, 
+\[
+\hat{\bar y}_r = \frac{107.4}{9.405}\cdot 10.3
+\]
+\[
+\rightarrow \hat {\bar y}_r = \fbox{117.6204}
+\]
+Thus, the \textbf{estimated population mean age of trees in the stand using ratio} is 117.6204 \\
+
+Now, getting an approximate standard error for our estimate, 
+\[
+SE( \hat{\bar y}_r) = \sqrt{\hat{Var}({\hat{\bar y}_r})}
+\]
+\[
+\rightarrow SE( \hat{\bar y}_r) \approx \sqrt{\left(1-\frac{n}{N}\right)\left(\frac{\bar x_u}{\bar x}\right)^2\frac{s_e^2}{n}}, \tag{2} \label{se}
+\]
+where $e_i = y_i - \hat Bx_i$ and $s_e^2 = \frac{1}{n-1}\sum_{i \in S}e_i^2$.
+
+The only value we are missing for the computation of the standard error is $s_e^2$. Using R to compute for $s_e^2$:
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OtherTok{=} \DecValTok{20}
+
+\CommentTok{\# Computing B\_hat}
+\NormalTok{B\_hat }\OtherTok{\textless{}{-}}\NormalTok{ ybar }\SpecialCharTok{/}\NormalTok{ xbar}
+
+\CommentTok{\# Computing residuals }
+\NormalTok{e }\OtherTok{\textless{}{-}}\NormalTok{ age }\SpecialCharTok{{-}}\NormalTok{ B\_hat }\SpecialCharTok{*}\NormalTok{ diameter}
+
+\CommentTok{\# Computing squared residuals}
+\NormalTok{sq\_e }\OtherTok{\textless{}{-}}\NormalTok{ e}\SpecialCharTok{\^{}}\DecValTok{2}
+
+\CommentTok{\# Computing sample variance of residuals}
+\NormalTok{var\_e }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(sq\_e) }\SpecialCharTok{/}\NormalTok{ (n }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Sample variance of residuals:"}\NormalTok{, var\_e)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Sample variance of residuals: 321.933
+\end{verbatim}
+
+Thus, $s_e^2 = 321.933$. Plugging this into \eqref{se}, 
+\[
+\rightarrow SE( \hat{\bar y}_r) \approx \sqrt{\left(1-\frac{20}{1132}\right)\left(\frac{10.3}{9.405}\right)^2\frac{321.933}{20}}
+\]
+\[
+\rightarrow SE( \hat{\bar y}_r) \approx 4.354872
+\]
+\[
+\rightarrow SE( \hat{\bar y}_r) \approx \fbox{4.3549}
+\]
+
+\item \textbf{Repeat (b) using regression estimation.}
+
+The regression estimator for $\bar y_u$ is given by 
+\[
+\hat{\bar y}_{reg} = \bar y + \hat B_1(\bar x_u - \bar x), \tag{3} \label{yreg} 
+\]
+where 
+\[
+\hat B_1 = \frac{\sum_{i \in S}(x_i - \bar x)(y_i - \bar y)}{\sum_{i \in S}(x_i-\bar x)^2}.
+\]
+Using R to compute for $\hat B_1$,
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Computing for B\_1\_hat}
+\NormalTok{xdev }\OtherTok{\textless{}{-}}\NormalTok{ diameter }\SpecialCharTok{{-}}\NormalTok{ xbar}
+\NormalTok{ydev }\OtherTok{\textless{}{-}}\NormalTok{ age }\SpecialCharTok{{-}}\NormalTok{ ybar}
+\NormalTok{numerator }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(xdev }\SpecialCharTok{*}\NormalTok{ ydev)}
+\NormalTok{sq.xdev }\OtherTok{\textless{}{-}}\NormalTok{ xdev}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{denominator }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(sq.xdev)}
+\NormalTok{B\_1\_hat }\OtherTok{\textless{}{-}}\NormalTok{ numerator }\SpecialCharTok{/}\NormalTok{ denominator}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"B\_1\_hat ="}\NormalTok{, B\_1\_hat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## B_1_hat = 12.24966
+\end{verbatim}
+
+Thus, $\hat B_1 = 12.24966$. Plugging this into \eqref{yreg}, 
+\[
+\hat{\bar y}_{reg} = 107.4 + 12.24966(10.3 - 9.405)
+\]
+\[
+\rightarrow \hat{\bar y}_{reg} = 118.3634457
+\]
+\[
+\rightarrow \hat{\bar y}_{reg} \approx \fbox{118.3634}
+\]
+
+Now, getting an approximate standard error for our estimate, 
+\[
+SE( \hat{\bar y}_{reg}) = \sqrt{\hat{Var}({\hat{\bar y}_{reg}})}
+\]
+\[
+\rightarrow SE( \hat{\bar y}_{reg}) \approx \sqrt{\left(1-\frac{n}{N}\right)\frac{s_e^2}{n}}, \tag{4} \label{se_yreg}
+\]
+Plugging in the $s_e^2$ that was computed in the previous item into \eqref{se_yreg}, 
+\[
+\rightarrow SE( \hat{\bar y}_{reg}) \approx \sqrt{\left(1-\frac{20}{1132}\right)\frac{321.933}{20}}
+\]
+\[
+\rightarrow SE( \hat{\bar y}_{reg}) \approx 3.976462862
+\]
+\[
+\rightarrow SE( \hat{\bar y}_{reg}) \approx \fbox{3.9765}
+\]
+
+\item \textbf{Label your estimates on your graph. How do they compare?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Estimates}
+\NormalTok{y\_bar\_hat\_r }\OtherTok{\textless{}{-}} \FloatTok{117.6204} \CommentTok{\# Ratio estimator}
+\NormalTok{y\_bar\_hat\_reg }\OtherTok{\textless{}{-}} \FloatTok{118.3634} \CommentTok{\# Regression estimator}
+
+\CommentTok{\# Creating revised scatterplot}
+\FunctionTok{plot}\NormalTok{(diameter, age,}
+     \AttributeTok{main =} \StringTok{"Scatterplot of Tree Diameter vs. Age"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"Diameter"}\NormalTok{,}
+     \AttributeTok{ylab =} \StringTok{"Age"}\NormalTok{,}
+     \AttributeTok{pch =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Adding horizontal lines for the estimates }
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =}\NormalTok{ y\_bar\_hat\_r, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{) }\CommentTok{\# Ratio estimator }
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =}\NormalTok{ y\_bar\_hat\_reg, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{, }
+       \AttributeTok{lwd =} \DecValTok{2}\NormalTok{) }\CommentTok{\# Regression estimator}
+
+\CommentTok{\# Adding a legend for the estimates}
+\FunctionTok{text}\NormalTok{(}\AttributeTok{x =} \FunctionTok{max}\NormalTok{(diameter) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{, }\AttributeTok{y =}\NormalTok{ y\_bar\_hat\_r }\SpecialCharTok{{-}} \DecValTok{15}\NormalTok{, }
+    \AttributeTok{labels =} \StringTok{"Ratio Estimator"}\NormalTok{, }\AttributeTok{pos =} \DecValTok{3}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\AttributeTok{x =} \FunctionTok{max}\NormalTok{(diameter) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{, }\AttributeTok{y =}\NormalTok{ y\_bar\_hat\_reg }\SpecialCharTok{+} \DecValTok{3}\NormalTok{, }
+    \AttributeTok{labels =} \StringTok{"Regression Estimator"}\NormalTok{, }\AttributeTok{pos =} \DecValTok{3}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{scatterplot2.pdf}
+
+The ratio estimate and regression estimate are close to each other, but the regression estimate is slightly larger.
+
+\end{enumerate}
+
+\end{document}
