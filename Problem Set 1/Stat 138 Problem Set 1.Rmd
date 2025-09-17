@@ -184,8 +184,6 @@ $$
 
 Since we do not have an approximation of $p$, let us use $p=0.5$. And since $\alpha$ was not specified, let us use $\alpha=0.05$
 
-BLABLALBALBLABLABLABL
-
 $$
 P\left[|\hat p - 0.5| \leq 0.04\right] = 1-0.05
 $$
@@ -348,3 +346,4 @@ lower_CI <- mean_elevation - z_alpha * se_elevation
 upper_CI <- mean_elevation + z_alpha * se_elevation
 cat(paste("A 95%% CI for the average elevation in the population is (", round(lower_CI, 4), ",", round(upper_CI, 4), ")", sep = ""))
 ```
+
