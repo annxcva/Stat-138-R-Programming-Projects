@@ -1,0 +1,90 @@
+---
+output: 
+  pdf_document: 
+      keep_tex: true
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(ggplot2)
+```
+
+```{r}
+# Creating the dataset
+diameter <- c(12.0, 11.4, 7.9, 9.0, 10.5, 7.9, 7.3, 10.2, 11.7, 11.3,
+              5.7, 8.0, 10.3, 12.0, 9.2, 8.5, 7.0, 10.7, 9.3, 8.2)
+
+age <- c(125, 119, 83, 85, 99, 117, 69, 133, 154, 168,
+         61, 80, 114, 147, 122, 106, 82, 88, 97, 99)
+
+# Creating scatterplot 
+pdf("scatterplot1.pdf", width = 7, height = 5)
+plot(diameter, age, pch=1, xlab="Diameter", ylab="Age", main="Scatterplot of Tree Age vs. Diameter")
+dev.off()
+
+```
+```{r}
+# Computing the sample mean age of trees
+ybar = mean(age)
+cat("Mean age of trees in the sample:", ybar)
+```
+
+```{r}
+# Computing the sample mean diameter of trees
+xbar= mean(diameter)
+cat("Mean diameter of trees in the sample", xbar)
+```
+```{r}
+n = 20
+
+# Computing B_hat
+B_hat <- ybar / xbar
+
+# Computing residuals 
+e <- age - B_hat * diameter
+
+# Computing squared residuals
+sq_e <- e^2
+
+# Computing sample variance of residuals
+var_e <- sum(sq_e) / (n - 1)
+
+cat("Sample variance of residuals:", var_e)
+```
+
+```{r}
+# Computing for B_1_hat
+xdev <- diameter - xbar
+ydev <- age - ybar
+numerator <- sum(xdev * ydev)
+sq.xdev <- xdev^2
+denominator <- sum(sq.xdev)
+B_1_hat <- numerator / denominator
+cat("B_1_hat =", B_1_hat)
+```
+```{r}
+# Estimates
+y_bar_hat_r <- 117.6204 # Ratio estimator
+y_bar_hat_reg <- 118.3634 # Regression estimator
+
+# Creating revised scatterplot
+pdf("scatterplot2.pdf", width = 7, height = 5)
+plot(diameter, age,
+     main = "Scatterplot of Tree Diameter vs. Age",
+     xlab = "Diameter",
+     ylab = "Age",
+     pch = 1)
+
+# Adding horizontal lines for the estimates 
+abline(h = y_bar_hat_r, col = "red", lty = 2, lwd = 2) # Ratio estimator 
+abline(h = y_bar_hat_reg, col = "blue", lty = 2, lwd = 2) # Regression estimator
+
+# Adding a legend for the estimates
+text(x = max(diameter) - 1, y = y_bar_hat_r - 15, labels = "Ratio Estimator", pos = 3, col = "red")
+text(x = max(diameter) - 1, y = y_bar_hat_reg + 3, labels = "Regression Estimator", pos = 3, col = "blue")
+dev.off()
+```
+
+
