@@ -1,0 +1,599 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,fancyhdr,graphicx, multicol}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Stat 138: Introduction to Sampling Designs},
+  pdfauthor={Anne Christine Amores},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\setlength{\headheight}{15pt}
+\lhead{2nd Sem, A.Y. 2024-2025}
+\chead{Stat 138: Problem Set 1}
+\rhead{Amores}
+
+\pagestyle{fancy}
+\title{Stat 138: Introduction to Sampling Designs \\ Problem Set 1}
+\author{Anne Christine Amores}
+\date{March 12, 2025}
+
+\begin{document}
+\maketitle
+
+\section{Problems}
+
+\textbf{1. An SRS of size 30 is taken from a population of size
+100. The sample values are given below, and in the data file
+srs30.dat.}
+
+\begin{center}
+\textbf{8 5 2 6 6 3 8 6 10 7 15 9 15 3 5 6 7 10 14 3 4 17 10 6 14 12 7 8 12 9}
+\end{center}
+\\
+\textbf{a. What is the sampling weight for each unit in the sample?} \\
+\\
+Under SRSWOR, the probability of inclusion is
+
+\[
+\pi_i = \frac{n}{N} = \frac{30}{100} \quad \quad i = 1,\;2,\;...,\;30
+\]
+
+Thus, the sampling weight for each unit in the sample is
+
+\[
+w_i = \frac{1}{\pi_i} = \frac{100}{30} \approx \boxed{3.3333}.
+\]
+
+\textbf{b. Use the sampling weights to estimate the population total, \(t\).} 
+
+\[
+\hat t = \sum_{i \in S}{w_iy_i} = \frac{100}{30}\sum_{i \in S}{y_i} = \frac{100}{30}(8+5+2+6+6+3+...+12+9) \approx \boxed{823.3333}
+\]
+
+\textbf{c.~Give a 95\% CI for \(t\). Does the fpc make a difference for this
+sample?} \\
+\\
+For the population total \(t\), an approximate 95\% CI is given by
+
+\[
+\left[\;\hat t- t_{0.025,n-1}SE(\hat t),\;\;\hat t +t_{0.025,n-1}SE(\hat t)\;\right]
+\]
+
+\[
+= \left[\;\hat t- t_{0.025,29}\sqrt{N^2(1-\frac{n}{N})\frac{s_y^2}n},\;\hat t +t_{0.025,29}\sqrt{N^2(1-\frac{n}{N})\frac{s_y^2}n}\;\right]
+\]
+
+\[
+= \left[\;823.3333- 2.045\sqrt{100^2(1-\frac{30}{100})\frac{s_y^2}{30}},\;823.3333 +2.045\sqrt{100^2(1-\frac{30}{100})\frac{s_y^2}{30}}\;\right],
+\]
+\begin{center}
+where $s_y^2 =\frac{\frac{1}{30-1}\sum_{i \in S}{(y_i-8.2333)^2}}{30}$.
+\end{center}
+\[
+= \boxed{\left[\;698.4670,\;948.1996\;\right]}
+\]
+
+Ignoring the fpc, the resulting approximate 95\% CI is given by
+
+\[
+= \left[\;823.3333- 2.045\sqrt{100^2\frac{s_y^2}{30}},\;823.3333 +2.045\sqrt{100^2\frac{s_y^2}{30}}\;\right],
+\]
+\begin{center}
+where $s_y^2 =\frac{\frac{1}{30-1}\sum_{i \in S}{(y_i-8.2333)^2}}{30}$.
+\end{center}
+
+\[
+= \boxed{\left[\;674.0896,\;972.5770\;\right]}
+\]
+
+Thus, the fpc does make a difference in this case, as it resulted in a
+narrower confidence interval. 
+
+\hrulefill
+
+\textbf{2. The percentage of patients overdue for a vaccination
+is often of interest for a medical clinic. Some clinics examine every
+record to determine that percentage; in a large practice though, taking
+a census of the records can be time-consuming. Cullen (1994) took a
+sample of the 580 children served by an Auckland family practice to
+estimate the proportion of
+interest.} \\
+\\
+\textbf{a. What sample size in an SRS (without replacement) would be
+necessary to estimate the proportion with 95\% confidence and margin of error 0.10?}
+
+The desired precision of the estimate of the proportion is expressed as
+
+\[
+P\left[|\hat p - p| \leq e\right] = 1-\alpha
+\]
+
+\[
+\Rightarrow P\left[-e \leq \hat p - p \leq e\right] = 1-\alpha
+\]
+
+\[
+\Rightarrow P\left[\frac{-e}{\sqrt{\left(\frac{N-n}{N-1}\right)\frac{p(1-p)}{n}}} \leq \frac{\hat p - p}{\sqrt{\left(\frac{N-n}{N-1}\right)\frac{p(1-p)}{n}}} \leq \frac{e}{\sqrt{\left(\frac{N-n}{N-1}\right)\frac{p(1-p)}{n}}}\right]=1-\alpha
+\]
+
+\[
+\Rightarrow z_{\frac{\alpha}{2}} = \frac{e}{\sqrt{\left(\frac{N-n}{N-1}\right)\frac{p(1-p)}{n}}}
+\]
+
+Solving for \(n\) from the ``mother equation'',
+
+\[
+\Rightarrow n = \frac{N}{\frac{e^2}{{z_{\alpha/2}^2}\frac{p(1-p)}{N-1}} + 1}
+\]
+
+Since we do not know the value of \(p\), let us use the value of p that
+will maximize the sample size, i.e., \(p=0.5\).
+
+\[
+\Rightarrow n = \frac{580}{\frac{0.1^2}{{1.96^2}\frac{0.5(1-0.5)}{580-1}} + 1}
+\]
+
+\[
+\Rightarrow n = 82.51836928
+\]
+
+\[
+\Rightarrow n \approx  \boxed{83}
+\]
+
+\textbf{b. Cullen actually took an SRS with replacement of size 120, of whom 27 were \emph{not} overdue for vaccination. Give a 95\% CI for the proportion of children not overdue for vaccination.} \\
+\\
+Since 27 out of the 120 children in the sample were not overdue for
+vaccination, \(\hat p = \frac{27}{120} = 0.225\).
+
+And since SRS was done with replacement, we do not need to use the fpc.
+
+An approximate 95\% CI for the proportion of children not overdue for
+vaccination is given by
+
+\[
+\left[\;\hat p - z_{0.025}SE(\hat p),\;\hat p + z_{0.025}SE(\hat p)\;\right]
+\]
+
+\[
+=\left[\;\hat p - z_{0.025}\sqrt{\frac{\hat p(1-\hat p)}{n}},\;\hat p + z_{0.025}\sqrt{\frac{\hat p(1-\hat p)}{n}}\;\right]
+\]
+
+\[
+=\left[\;0.225 -1.96\sqrt{\frac{0.225(1-0.225)}{120}},\;0.225 + 1.96\sqrt{\frac{0.225(1-0.225)}{120}}\;\right]
+\]
+
+\[
+=\boxed{\left[\;0.1503,\;0.2997 \right]}
+\]
+
+\subsubsection{3. The Special Census of Maricopa County, Arizona, gave
+1995 populations for the following
+cities:}\label{the-special-census-of-maricopa-county-arizona-gave-1995-populations-for-the-following-cities}
+
+\begin{longtable}[]{@{}lc@{}}
+\toprule\noalign{}
+City & Population \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Buckeye & 4,857 \\
+Gilbert & 59,338 \\
+Gila Bend & 1,724 \\
+Phoenix & 1,149,417 \\
+Tempe & 153,821 \\
+\end{longtable}
+
+\subsubsection{Suppose that you are interested in estimating the
+percentage of persons who have been immunized against polio in each city
+and can take an SRS of persons. What should your sample size be in each
+of the 5 cities if you want the estimate from each city to have margin
+of error of 4 percentage points? For which cities does the finite
+population correction make a
+difference?}\label{suppose-that-you-are-interested-in-estimating-the-percentage-of-persons-who-have-been-immunized-against-polio-in-each-city-and-can-take-an-srs-of-persons.-what-should-your-sample-size-be-in-each-of-the-5-cities-if-you-want-the-estimate-from-each-city-to-have-margin-of-error-of-4-percentage-points-for-which-cities-does-the-finite-population-correction-make-a-difference} 
+
+Since we do not have an approximation of \(p\), let us use \(p=0.5\).
+And since \(\alpha\) was not specified, let us use \(\alpha=0.05\).
+
+\[
+P\left[|\hat p - 0.5| \leq 0.04\right] = 1-0.05
+\]
+
+\[
+\Rightarrow P\left[-0.04 \leq \hat p - p \leq 0.04\right] = 0.95
+\]
+
+Ignoring the fpc,
+
+\[
+\Rightarrow P\left[\frac{-0.04}{\sqrt{\frac{N}{N-1}\frac{p(1-p)}{n}}} \leq \frac{\hat p - 0.5}{\sqrt{\frac{N}{N-1}\frac{p(1-p)}{n}}} \leq \frac{0.04}{\sqrt{\frac{N}{N-1}\frac{p(1-p)}{n}}}\right]=1-\alpha
+\]
+
+\[
+\Rightarrow z_{0.025} = \frac{0.04}{\sqrt{\frac{N}{N-1}\frac{p(1-p)}{n}}}
+\]
+
+Solving for \(n\) from the ``mother equation'',
+
+\[
+\Rightarrow n = \frac{z_{0.025}^2\frac{N}{N-1}p(1-p)}{0.04^2}
+\]
+\\
+\\
+\\
+Computing the sample size for each city \textbf{WITHOUT} the fpc,
+
+\ul{Buckeye}
+
+\[
+n = \frac{1.96^2\frac{4,857}{4,857-1}0.5(1-0.5)}{0.04^2} = 600.37361 \approx \boxed{601}
+\]
+
+\ul{Gilbert}
+
+\[
+n = \frac{1.96^2\frac{59,338}{59,338-1}0.5(1-0.5)}{0.04^2} = 600.2601159 \approx \boxed{601} 
+\]
+
+\ul{Gila Bend}
+
+\[
+n = \frac{1.96^2\frac{1,724}{1,724-1}0.5(1-0.5)}{0.04^2} = 600.5983749 \approx \boxed{601} 
+\]
+
+\ul{Phoenix}
+
+\[
+n = \frac{1.96^2\frac{1,149,417}{1,149,417-1}0.5(1-0.5)}{0.04^2} = 600.2505222 \approx \boxed{601}
+\]
+
+\ul{Tempe}
+
+\[
+n = \frac{1.96^2\frac{153,821}{153,821-1}0.5(1-0.5)}{0.04^2} = 600.2539023 \approx \boxed{601}
+\]
+\\
+\\
+Computing the sample size for each city \textbf{WITH} the fpc,
+
+\ul{Buckeye}
+
+\[
+n = \frac{N}{\frac{e^2}{{z_{\alpha/2}^2}\frac{p(1-p)}{N-1}} + 1} = \frac{4,857}{\frac{0.04^2}{{1.96^2}\frac{0.5(1-0.5)}{4,857-1}} + 1} = 534.3256357 \approx \boxed{535}
+\]
+
+\ul{Gilbert}
+
+\[
+n = \frac{59,338}{\frac{0.04^2}{{1.96^2}\frac{0.5(1-0.5)}{59,338-1}} + 1} = 594.2487268 \approx \boxed{595}
+\]
+\\
+\\
+\\
+\\
+\ul{Gila Bend}
+
+\[
+n = \frac{1,724}{\frac{0.04^2}{{1.96^2}\frac{0.5(1-0.5)}{1,724-1}} + 1} = 445.4238674 \approx \boxed{446}
+\]
+
+\ul{Phoenix}
+
+\[
+n = \frac{1,149,417}{\frac{0.04^2}{{1.96^2}\frac{0.5(1-0.5)}{1,149,417-1}} + 1} = 599.937222 \approx \boxed{600}
+\]
+
+\ul{Tempe}
+
+\[
+n = \frac{153,821}{\frac{0.04^2}{{1.96^2}\frac{0.5(1-0.5)}{153,821-1}} + 1} = 597.9206435 \approx \boxed{598}
+\]
+
+\textbf{Summary of Sample Sizes}
+
+\begin{longtable}[]{@{}lcc@{}}
+\toprule\noalign{}
+City & Sample Size without FPC & Sample Size with FPC \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Buckeye & 601 & 535 \\
+Gilbert & 601 & 595 \\
+Gila Bend & 601 & 446 \\
+Phoenix & 601 & 600 \\
+Tempe & 601 & 598 \\
+\end{longtable}
+
+Looking at the table, the fpc only made a noticeable difference for
+\textbf{Buckeye} and \textbf{Gila Bend}, significantly decreasing the
+required sample size to achieve the same precision.
+
+\newpage
+\subsubsection{\texorpdfstring{4. \emph{Forest data}. The data in file forest.dat consist of a subset of the measurements from 581,012 30x30m
+cells from Region 2 of the U.S. Forest Service Resource information
+System. The original data were used in a data mining application,
+predicting forest cover type from covariates. Data-mining methods are
+often used to explore relationships in very large data sets; in many
+cases, the data sets are so large that statistical software packages
+cannot analyze them. Many data-mining problems, however, can be
+alternatively approached by analyzing probability samples from the
+population. In these exercises, we treat forest.dat as a
+population.}{4. Forest data. The data in file forest.dat are from kdd.ics.uci.edu/databases/covertype/covertype.data.html (Blackard, 1998). They consist of a subset of the measurements from 581,012 30x30m cells from Region 2 of the U.S. Forest Service Resource information System. The original data were used in a data mining application, predicting forest cover type from covariates. Data-mining methods are often used to explore relationships in very large data sets; in many cases, the data sets are so large that statistical software packages cannot analyze them. Many data-mining problems, however, can be alternatively approached by analyzing probability samples from the population. In these exercises, we treat forest.dat as a population.}}\label{forest-data.-the-data-in-file-forest.dat-are-from-kdd.ics.uci.edudatabasescovertypecovertype.data.html-blackard-1998.-they-consist-of-a-subset-of-the-measurements-from-581012-30x30m-cells-from-region-2-of-the-u.s.-forest-service-resource-information-system.-the-original-data-were-used-in-a-data-mining-application-predicting-forest-cover-type-from-covariates.-data-mining-methods-are-often-used-to-explore-relationships-in-very-large-data-sets-in-many-cases-the-data-sets-are-so-large-that-statistical-software-packages-cannot-analyze-them.-many-data-mining-problems-however-can-be-alternatively-approached-by-analyzing-probability-samples-from-the-population.-in-these-exercises-we-treat-forest.dat-as-a-population.} 
+
+\paragraph{a. Select an SRS of size 2000 from the 581,012
+records.}\label{a.-select-an-srs-of-size-2000-from-the-581012-records.}
+
+\hspace{0.5cm}
+
+Importing the dataset and renaming the columns,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{forest }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"C:/Users/amore\_6ou078y/Downloads/forest.xlsx"}\NormalTok{, }
+    \AttributeTok{col\_names =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## New names:
+## * `` -> `...1`
+## * `` -> `...2`
+## * `` -> `...3`
+## * `` -> `...4`
+## * `` -> `...5`
+## * `` -> `...6`
+## * `` -> `...7`
+## * `` -> `...8`
+## * `` -> `...9`
+## * `` -> `...10`
+## * `` -> `...11`
+## * `` -> `...12`
+## * `` -> `...13`
+## * `` -> `...14`
+## * `` -> `...15`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{View}\NormalTok{(forest)}
+\FunctionTok{colnames}\NormalTok{(forest) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"elevation"}\NormalTok{, }\StringTok{"Aspect"}\NormalTok{, }\StringTok{"Slope"}\NormalTok{, }\StringTok{"Horiz"}\NormalTok{, }\StringTok{"Vert"}\NormalTok{, }
+        \StringTok{"HorizRoad"}\NormalTok{, }\StringTok{"Hillshade\_9am"}\NormalTok{, }\StringTok{"Hillshade\_Noon"}\NormalTok{, }\StringTok{"Hillshade\_3pm"}\NormalTok{, }
+                \StringTok{"HorizFire"}\NormalTok{, }\StringTok{"Wilderness1"}\NormalTok{, }\StringTok{"Wilderness2"}\NormalTok{, }\StringTok{"Wilderness3"}\NormalTok{, }
+                        \StringTok{"Wilderness4"}\NormalTok{, }\StringTok{"Cover"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(forest)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 15
+##   elevation Aspect Slope Horiz  Vert HorizRoad Hillshade_9am Hillshade_Noon
+##       <dbl>  <dbl> <dbl> <dbl> <dbl>  <dbl>         <dbl>          <dbl>
+## 1      2596     51     3   258     0   510           221            232
+## 2      2590     56     2   212    -6   390           220            235
+## 3      2804    139     9   268    65  3180           234            238
+## 4      2785    155    18   242   118  3090           238            238
+## 5      2595     45     2   153    -1   391           220            234
+## 6      2579    132     6   300   -15    67           230            237
+## # i 7 more variables: Hillshade_3pm <dbl>, HorizFire <dbl>, Wilderness1 <dbl>,
+## #   Wilderness2 <dbl>, Wilderness3 <dbl>, Wilderness4 <dbl>, Cover <dbl>
+\end{verbatim}
+
+\hspace{0.5cm}
+
+Obtaining an SRS of size 2000,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{srs\_forest }\OtherTok{\textless{}{-}}\NormalTok{ forest[}\FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(forest), }\AttributeTok{size =} \DecValTok{2000}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{), ] }
+\FunctionTok{head}\NormalTok{(srs\_forest)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 15
+##   elevation Aspect Slope Horiz  Vert Horiz Hillshade_9am Hillshade_Noon
+##       <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl>         <dbl>          <dbl>
+## 1      2840     20     6    42     6   566           216            228
+## 2      2690     95    11     0     0  1605           238            223
+## 3      2759     22    17     0     0   752           207            200
+## 4      3140     51    27   400   219  1981           222            172
+## 5      3170     29     6    30     1  1288           218            226
+## 6      2780    148    16    60    -3  3416           240            237
+## # i 7 more variables: Hillshade_3pm <dbl>, HorizFire <dbl>, Wilderness1 <dbl>,
+## #   Wilderness2 <dbl>, Wilderness3 <dbl>, Wilderness4 <dbl>, Cover <dbl>
+\end{verbatim}
+
+\paragraph{b. Using your SRS, estimate the percentage of cells in each
+of the 7 forest cover types, along with 95\%
+CIs.}\label{b.-using-your-srs-estimate-the-percentage-of-cells-in-each-of-the-7-forest-cover-types-along-with-95-cis.}
+
+\hspace{0.5cm}
+
+Computing for \(\hat p\) for all 7 forest cover types,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(srs\_forest) }\CommentTok{\# Sample size }
+\NormalTok{p\_hat1 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(srs\_forest}\SpecialCharTok{$}\NormalTok{Cover }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)}\SpecialCharTok{/}\NormalTok{n }
+\NormalTok{p\_hat2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(srs\_forest}\SpecialCharTok{$}\NormalTok{Cover }\SpecialCharTok{==} \DecValTok{2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{n }
+\NormalTok{p\_hat3 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(srs\_forest}\SpecialCharTok{$}\NormalTok{Cover }\SpecialCharTok{==} \DecValTok{3}\NormalTok{)}\SpecialCharTok{/}\NormalTok{n }
+\NormalTok{p\_hat4 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(srs\_forest}\SpecialCharTok{$}\NormalTok{Cover }\SpecialCharTok{==} \DecValTok{4}\NormalTok{)}\SpecialCharTok{/}\NormalTok{n }
+\NormalTok{p\_hat5 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(srs\_forest}\SpecialCharTok{$}\NormalTok{Cover }\SpecialCharTok{==} \DecValTok{5}\NormalTok{)}\SpecialCharTok{/}\NormalTok{n }
+\NormalTok{p\_hat6 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(srs\_forest}\SpecialCharTok{$}\NormalTok{Cover }\SpecialCharTok{==} \DecValTok{6}\NormalTok{)}\SpecialCharTok{/}\NormalTok{n }
+\NormalTok{p\_hat7 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(srs\_forest}\SpecialCharTok{$}\NormalTok{Cover }\SpecialCharTok{==} \DecValTok{7}\NormalTok{)}\SpecialCharTok{/}\NormalTok{n }
+\NormalTok{p\_hat\_table }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Cover\_Type =} \FunctionTok{c}\NormalTok{(}\StringTok{"Spruce/Fir"}\NormalTok{, }\StringTok{"Lodgepole Pine"}\NormalTok{, }\StringTok{"Ponderosa Pine"} 
+            \NormalTok{, }\StringTok{"Cottonwood/Willow"}\NormalTok{, }\StringTok{"Aspen"}\NormalTok{, }\StringTok{"Douglas{-}fir"}\NormalTok{, }\StringTok{"Krummholz"}\NormalTok{),}
+  \AttributeTok{p\_hat =} \FunctionTok{c}\NormalTok{(p\_hat1, p\_hat2, p\_hat3, p\_hat4, p\_hat5, p\_hat6, p\_hat7))}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+Getting an approximate 95\% CI for cover type proportions,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z\_alpha }\OtherTok{\textless{}{-}} \FloatTok{1.96}
+\NormalTok{p\_hat\_table}\SpecialCharTok{$}\NormalTok{Lower\_CI }\OtherTok{\textless{}{-}}\NormalTok{ p\_hat\_table}\SpecialCharTok{$}\NormalTok{p\_hat }\SpecialCharTok{{-}}\NormalTok{ z\_alpha }\SpecialCharTok{*}\FunctionTok{sqrt}\NormalTok{((p\_hat\_table}\SpecialCharTok{$}\NormalTok{p\_hat }
+        \SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p\_hat\_table}\SpecialCharTok{$}\NormalTok{p\_hat)) }\SpecialCharTok{/}\NormalTok{ n)}
+\NormalTok{p\_hat\_table}\SpecialCharTok{$}\NormalTok{Upper\_CI }\OtherTok{\textless{}{-}}\NormalTok{ p\_hat\_table}\SpecialCharTok{$}\NormalTok{p\_hat }\SpecialCharTok{+}\NormalTok{ z\_alpha }\SpecialCharTok{*} \FunctionTok{sqrt}\NormalTok{((p\_hat\_table}\SpecialCharTok{$}\NormalTok{p\_hat }
+        \SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p\_hat\_table}\SpecialCharTok{$}\NormalTok{p\_hat)) }\SpecialCharTok{/}\NormalTok{ n)}
+\FunctionTok{print}\NormalTok{(p\_hat\_table)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          Cover_Type  p_hat     Lower_CI    Upper_CI
+## 1        Spruce/Fir 0.3655 3.443943e-01 0.386605740
+## 2    Lodgepole Pine 0.4965 4.745871e-01 0.518412929
+## 3    Ponderosa Pine 0.0645 5.373429e-02 0.075265714
+## 4 Cottonwood/Willow 0.0020 4.196098e-05 0.003958039
+## 5             Aspen 0.0125 7.630721e-03 0.017369279
+## 6       Douglas-fir 0.0270 1.989639e-02 0.034103614
+## 7         Krummholz 0.0320 2.428646e-02 0.039713540
+\end{verbatim}
+
+\paragraph{c.~Estimate the average elevation in the population, with
+95\%
+CI.}\label{c.-estimate-the-average-elevation-in-the-population-with-95-ci.}
+
+\hspace{0.5cm}
+
+Getting an estimate of the average elevation in the population and
+computing for a 95\% CI,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean\_elevation }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(srs\_forest}\SpecialCharTok{$}\NormalTok{elevation)}
+\NormalTok{se\_elevation }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(srs\_forest}\SpecialCharTok{$}\NormalTok{elevation) }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(srs\_forest))}
+\NormalTok{z\_alpha }\OtherTok{\textless{}{-}} \FloatTok{1.96}
+\NormalTok{lower\_CI }\OtherTok{\textless{}{-}}\NormalTok{ mean\_elevation }\SpecialCharTok{{-}}\NormalTok{ z\_alpha }\SpecialCharTok{*}\NormalTok{ se\_elevation}
+\NormalTok{upper\_CI }\OtherTok{\textless{}{-}}\NormalTok{ mean\_elevation }\SpecialCharTok{+}\NormalTok{ z\_alpha }\SpecialCharTok{*}\NormalTok{ se\_elevation}
+\FunctionTok{cat}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"A 95\%\% CI for the average elevation in the population is ("}\NormalTok{, }
+            \FunctionTok{round}\NormalTok{(lower\_CI, }\DecValTok{4}\NormalTok{), }\StringTok{","}\NormalTok{, }\FunctionTok{round}\NormalTok{(upper\_CI, }\DecValTok{4}\NormalTok{), }\StringTok{")"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## A 95%% CI for the average elevation in the population is (2950.3235,2974.8495)
+\end{verbatim}
+
+\end{document}
