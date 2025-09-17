@@ -1,0 +1,697 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+
+\documentclass[]{article}
+\usepackage{graphicx, enumitem, cancel, fancyhdr, float} 
+\usepackage[a4paper, margin=1.25in]{geometry}
+\pagestyle{fancy}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+
+\setlength{\headheight}{15pt}
+\lhead{2nd Sem, A.Y. 2024-2025}
+\chead{Stat 138: Problem Set 6}
+\rhead{Amores}
+
+\title{Stat 138: Introduction to Sampling Designs \\ Problem Set 6}
+\author{Anne Christine Amores}
+\date{June 3, 2025}
+
+\makeatletter
+\newcommand{\skipitems}[1]{%
+  \addtocounter{\@enumctr}{#1}%
+}
+\makeatother
+
+\begin{document}
+\maketitle
+
+\section{ASA Certification Survey}
+The American Statistical Association (ASA) studied whether it should offer a certification designation for its members, so that statisticians meeting the qualifications could be designated as "Certified Statisticians." In 1994, the ASA surveyed its membership about this issue, with data in file certify.dat. The survey was sent to all 18,609 members; 5001 responses were obtained. Results from the survey were reported in the October 1994 issue of \textit{Amstat News.} Assume that in 1994, the ASA membership had the following characteristics: 55\% have Ph.D.'s and 38\% have Master's degrees; 29\% work in industry, 34\% work in academia, and 11\% work in government. The cross-classification between education and workplace was unavailable. 
+
+\subsection{(a) What are the response rates for the various subclasses of ASA membership? Are the nonrespondents MCAR? Do you think they are MAR?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Loading the necessary packages }
+\FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(survey)}
+\FunctionTok{library}\NormalTok{(tidyr)}
+\end{Highlighting}
+\end{Shaded}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Importing the dataset }
+\NormalTok{cert }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"certify.xlsx"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(cert)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 11
+##   certify approve speccert wouldyou recert subdisc college employ workenv
+##     <dbl>   <dbl>    <dbl>    <dbl>  <dbl> <chr>   <chr>   <chr>  <chr>  
+## 1       4       2        5        5      3 BI      P       E      G      
+## 2       2       2        3        2      1 QP      P       E      I      
+## 3       2       2        4        5      4 BI      P       E      A      
+## 4       1       1        2        1      5 CE      M       E      A      
+## 5       1       1        1        1      2 SP      P       E      I      
+## 6       5       5        5        3      5 BI      P       E      G      
+## # i 2 more variables: workact <chr>, yearsmem <chr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cleaning and recoding missing values }
+\NormalTok{cert }\OtherTok{\textless{}{-}}\NormalTok{ cert }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{college =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(college), }\StringTok{"O"}\NormalTok{, college),}
+    \AttributeTok{workenv =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(workenv), }\StringTok{"O"}\NormalTok{, workenv)}
+\NormalTok{  )}
+
+\CommentTok{\# Collapsing education levels and workplace into groups matching population}
+\CommentTok{   proportions }
+\NormalTok{cert }\OtherTok{\textless{}{-}}\NormalTok{ cert }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{edu\_group =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{      college }\SpecialCharTok{==} \StringTok{"P"} \SpecialCharTok{\textasciitilde{}} \StringTok{"PhD"}\NormalTok{,     }
+\NormalTok{      college }\SpecialCharTok{==} \StringTok{"M"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Masters"}\NormalTok{,     }
+      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"Other"}                  
+\NormalTok{    )}
+\NormalTok{  )}
+
+\CommentTok{\# Recoding workenv into full labels}
+\NormalTok{cert }\OtherTok{\textless{}{-}}\NormalTok{ cert }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{workenv\_full =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{      workenv }\SpecialCharTok{==} \StringTok{"A"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Academia"}\NormalTok{,}
+\NormalTok{      workenv }\SpecialCharTok{==} \StringTok{"G"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Government"}\NormalTok{,}
+\NormalTok{      workenv }\SpecialCharTok{==} \StringTok{"I"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Industry"}\NormalTok{, }
+      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"Other"}
+\NormalTok{    )}
+\NormalTok{  )}
+
+\CommentTok{\# Defining total population and proportions}
+\NormalTok{total\_pop }\OtherTok{\textless{}{-}} \DecValTok{18609}
+
+\NormalTok{edu\_pop\_prop }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{PhD =} \FloatTok{0.55}\NormalTok{, }\AttributeTok{Masters =} \FloatTok{0.38}\NormalTok{, } 
+    \NormalTok{}\AttributeTok{Other =} \FloatTok{0.07}\NormalTok{)}
+\NormalTok{workenv\_pop\_prop }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{Industry =} \FloatTok{0.29}\NormalTok{, }\AttributeTok{Academia =} \FloatTok{0.34}\NormalTok{, }\AttributeTok{Government =} \FloatTok{0.11}\NormalTok{, }\AttributeTok{Other =} \FloatTok{0.26}\NormalTok{)}
+
+\CommentTok{\# Converting to population counts}
+\NormalTok{edu\_pop\_count }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(edu\_pop\_prop }\SpecialCharTok{*}\NormalTok{ total\_pop)}
+\NormalTok{workenv\_pop\_count }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(workenv\_pop\_prop }\SpecialCharTok{*}\NormalTok{ total\_pop)}
+
+\CommentTok{\# Counting respondents (non{-}missing \textquotesingle{}certify\textquotesingle{})}
+\NormalTok{edu\_respondents }\OtherTok{\textless{}{-}}\NormalTok{ cert }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(certify)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(edu\_group) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(edu\_group }\SpecialCharTok{\%in\%} \FunctionTok{names}\NormalTok{(edu\_pop\_count))}
+
+\NormalTok{workenv\_respondents }\OtherTok{\textless{}{-}}\NormalTok{ cert }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(certify)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(workenv\_full) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(workenv\_full }\SpecialCharTok{\%in\%} \FunctionTok{names}\NormalTok{(workenv\_pop\_count))}
+
+\CommentTok{\# Merging with population counts and computing response rates}
+\NormalTok{edu\_response }\OtherTok{\textless{}{-}}\NormalTok{ edu\_respondents }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{pop =}\NormalTok{ edu\_pop\_count[edu\_group],}
+    \AttributeTok{response\_rate =}\NormalTok{ n }\SpecialCharTok{/}\NormalTok{ pop}
+\NormalTok{  )}
+
+\NormalTok{workenv\_response }\OtherTok{\textless{}{-}}\NormalTok{ workenv\_respondents }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{pop =}\NormalTok{ workenv\_pop\_count[workenv\_full],}
+    \AttributeTok{response\_rate =}\NormalTok{ n }\SpecialCharTok{/}\NormalTok{ pop}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Formatting education summary table }
+\NormalTok{edu\_summary }\OtherTok{\textless{}{-}}\NormalTok{ edu\_response }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{transmute}\NormalTok{(}
+    \StringTok{\textasciigrave{}}\AttributeTok{Education Level}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ edu\_group,}
+    \StringTok{\textasciigrave{}}\AttributeTok{Response Rate}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}\FunctionTok{round}\NormalTok{(response\_rate }\SpecialCharTok{*} \DecValTok{100}\NormalTok{), }\StringTok{"\%"}\NormalTok{)}
+\NormalTok{  )}
+
+\CommentTok{\# Formatting work environment summary table }
+\NormalTok{workenv\_summary }\OtherTok{\textless{}{-}}\NormalTok{ workenv\_response }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{transmute}\NormalTok{(}
+    \StringTok{\textasciigrave{}}\AttributeTok{Work Environment}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ workenv\_full,}
+    \StringTok{\textasciigrave{}}\AttributeTok{Response Rate}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}\FunctionTok{round}\NormalTok{(response\_rate }\SpecialCharTok{*} \DecValTok{100}\NormalTok{), }\StringTok{"\%"}\NormalTok{)}
+\NormalTok{  )}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Summary: Response Rates by Education Level}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Summary: Response Rates by Education Level
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(edu\_summary)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   `Education Level` `Response Rate`
+##   <chr>             <chr>          
+## 1 Masters           23%            
+## 2 Other             25%            
+## 3 PhD               30%
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{ Summary: Response Rates by Work Environment}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Summary: Response Rates by Work Environment
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(workenv\_summary)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 2
+##   `Work Environment` `Response Rate`
+##   <chr>              <chr>          
+## 1 Academia           35%            
+## 2 Government         43%            
+## 3 Industry           34%            
+## 4 Other              2%
+\end{verbatim}
+
+The nonresponse is \textbf{not MCAR} because response rates differ by education level and work environment. It is \textbf{unlikely to be MAR} because the missingness probably depends on factors beyond the observed variables, such as unmeasured attitudes or opinions.
+
+\newpage
+\subsection{(b) Use raking to adjust the weights for the six cells defined by education (Ph.D. or non-Ph.D.) and workplace (industry, academia, or other). Start with an initial weight of 18,609/5001 for each respondent. What assumptions must you make to use raking?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Recoding both education and work environment to match population margins }
+\NormalTok{cert }\OtherTok{\textless{}{-}}\NormalTok{ cert }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+     \CommentTok{\# Collapsing education into "PhD" and "non{-}PhD"}
+    \AttributeTok{edu\_group\_rake =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{      edu\_group }\SpecialCharTok{==} \StringTok{"PhD"} \SpecialCharTok{\textasciitilde{}} \StringTok{"PhD"}\NormalTok{,}
+      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"non{-}PhD"}
+\NormalTok{    ),}
+    \CommentTok{\# Collapsing workenv: Government becomes Other}
+    \AttributeTok{workenv\_rake =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{      workenv\_full }\SpecialCharTok{==} \StringTok{"Government"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Other"}\NormalTok{,}
+      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ workenv\_full}
+\NormalTok{    ),}
+    \CommentTok{\# Making sure factors match margin levels}
+    \AttributeTok{edu\_group\_rake =} \FunctionTok{factor}\NormalTok{(edu\_group\_rake, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"PhD"}\NormalTok{, }\StringTok{"non{-}PhD"}\NormalTok{)),}
+    \AttributeTok{workenv\_rake =} \FunctionTok{factor}\NormalTok{(workenv\_rake, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Industry"}\NormalTok{, }\StringTok{"Academia"}\NormalTok{, }
+                                                    \StringTok{"Other"}\NormalTok{))}
+\NormalTok{  )}
+
+\CommentTok{\# Creating a cross{-}tabulation of sample counts}
+\NormalTok{initial\_counts }\OtherTok{\textless{}{-}}\NormalTok{ cert }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(edu\_group\_rake, workenv\_rake) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ workenv\_rake, }\AttributeTok{values\_from =}\NormalTok{ n, }\AttributeTok{values\_fill =} \DecValTok{0}\NormalTok{)}
+
+\CommentTok{\# Adding row totals}
+\NormalTok{initial\_counts }\OtherTok{\textless{}{-}}\NormalTok{ initial\_counts }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Total =}\NormalTok{ Industry }\SpecialCharTok{+}\NormalTok{ Academia }\SpecialCharTok{+}\NormalTok{ Other)}
+
+\CommentTok{\# Adding column totals}
+\NormalTok{col\_totals }\OtherTok{\textless{}{-}}\NormalTok{ initial\_counts }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(Industry}\SpecialCharTok{:}\NormalTok{Total, sum)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{edu\_group\_rake =} \StringTok{"Total"}\NormalTok{)}
+
+\CommentTok{\# Combining table with totals }
+\NormalTok{initial\_counts\_full }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(initial\_counts, col\_totals)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Sample Counts per Cell (PhD vs. non{-}PhD × Work Environment):}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Sample Counts per Cell (PhD vs. non-PhD × Work Environment):
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(initial\_counts\_full)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 5
+##   edu_group_rake Industry Academia Other Total
+##   <chr>             <int>    <int> <int> <int>
+## 1 PhD                 798     1787   451  3036
+## 2 non-PhD            1011      434   520  1965
+## 3 Total              1809     2221   971  5001
+\end{verbatim}
+
+\newpage
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Defining initial weight as a standalone variable }
+\NormalTok{init\_weight }\OtherTok{\textless{}{-}} \DecValTok{18609} \SpecialCharTok{/} \DecValTok{5001}
+
+\CommentTok{\# Defining population margins }
+\NormalTok{edu\_dist }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{edu\_group\_rake =} \FunctionTok{c}\NormalTok{(}\StringTok{"PhD"}\NormalTok{, }\StringTok{"non{-}PhD"}\NormalTok{),}
+                       \AttributeTok{Freq =} \FunctionTok{c}\NormalTok{(}\DecValTok{10235}\NormalTok{, }\DecValTok{8374}\NormalTok{))}
+
+\NormalTok{workenv\_dist }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{workenv\_rake =} \FunctionTok{c}\NormalTok{(}\StringTok{"Industry"}\NormalTok{, }\StringTok{"Academia"}\NormalTok{, }\StringTok{"Other"}\NormalTok{),}
+                           \AttributeTok{Freq =} \FunctionTok{c}\NormalTok{(}\DecValTok{5397}\NormalTok{, }\DecValTok{6327}\NormalTok{, }\DecValTok{6885}\NormalTok{))}
+
+\CommentTok{\# Count of respondents per cell}
+\NormalTok{initial\_counts }\OtherTok{\textless{}{-}}\NormalTok{ cert }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(edu\_group\_rake, workenv\_rake)}
+
+\CommentTok{\# Multiplying counts by initial weight to get total weight per cell }
+\NormalTok{initial\_weights }\OtherTok{\textless{}{-}}\NormalTok{ initial\_counts }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{weight\_total =}\NormalTok{ n }\SpecialCharTok{*}\NormalTok{ init\_weight) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{n) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ workenv\_rake, }\AttributeTok{values\_from =}\NormalTok{ weight\_total, }\AttributeTok{values\_fill =} \DecValTok{0}\NormalTok{)}
+
+\CommentTok{\# Adding row totals }
+\NormalTok{initial\_weights }\OtherTok{\textless{}{-}}\NormalTok{ initial\_weights }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Total =}\NormalTok{ Industry }\SpecialCharTok{+}\NormalTok{ Academia }\SpecialCharTok{+}\NormalTok{ Other)}
+
+\CommentTok{\# Adding column totals }
+\NormalTok{col\_totals }\OtherTok{\textless{}{-}}\NormalTok{ initial\_weights }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(Industry}\SpecialCharTok{:}\NormalTok{Total, sum)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{edu\_group\_rake =} \StringTok{"Total"}\NormalTok{)}
+
+\CommentTok{\# Final table with row and column totals}
+\NormalTok{initial\_weights\_table }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(initial\_weights, col\_totals) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(edu\_group\_rake, Industry, Academia, Other, Total)}
+
+\CommentTok{\# Rounding all numeric columns to 1 decimal place}
+\NormalTok{initial\_weights\_table\_rounded }\OtherTok{\textless{}{-}}\NormalTok{ initial\_weights\_table }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{round}\NormalTok{(., }\DecValTok{1}\NormalTok{)))}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Initial Sum of Weights per Cell (Before Raking, Rounded to 1 Decimal):}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Initial Sum of Weights per Cell (Before Raking, Rounded to 1 Decimal):
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(initial\_weights\_table\_rounded)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 5
+##   edu_group_rake Industry Academia Other  Total
+##   <chr>             <dbl>    <dbl> <dbl>  <dbl>
+## 1 PhD               2969.    6650. 1678. 11297.
+## 2 non-PhD           3762     1615. 1935.  7312.
+## 3 Total             6731.    8264. 3613. 18609
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Creating initial weights}
+\NormalTok{cert}\SpecialCharTok{$}\NormalTok{init\_weight }\OtherTok{\textless{}{-}} \DecValTok{18609} \SpecialCharTok{/} \DecValTok{5001}
+
+\CommentTok{\# Setting up initial survey design}
+\NormalTok{design\_init }\OtherTok{\textless{}{-}} \FunctionTok{svydesign}\NormalTok{(}\AttributeTok{ids =} \SpecialCharTok{\textasciitilde{}}\DecValTok{1}\NormalTok{, }\AttributeTok{data =}\NormalTok{ cert, }\AttributeTok{weights =} \SpecialCharTok{\textasciitilde{}}\NormalTok{init\_weight)}
+
+\CommentTok{\# Raking}
+\NormalTok{design\_raked }\OtherTok{\textless{}{-}} \FunctionTok{rake}\NormalTok{(design\_init,}
+                     \AttributeTok{sample.margins =} \FunctionTok{list}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{edu\_group\_rake, }\SpecialCharTok{\textasciitilde{}}\NormalTok{workenv\_rake),}
+                     \AttributeTok{population.margins =} \FunctionTok{list}\NormalTok{(edu\_dist, workenv\_dist))}
+
+\CommentTok{\# Getting weighted counts table}
+\NormalTok{tab }\OtherTok{\textless{}{-}} \FunctionTok{svytable}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{edu\_group\_rake }\SpecialCharTok{+}\NormalTok{ workenv\_rake, design\_raked)}
+
+\CommentTok{\# Adding margins (row and column totals)}
+\NormalTok{tab\_with\_margins }\OtherTok{\textless{}{-}} \FunctionTok{addmargins}\NormalTok{(tab)}
+
+\CommentTok{\# Rounding the table values to 1 decimal place}
+\NormalTok{tab\_rounded }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(tab\_with\_margins, }\DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Print the rounded table}
+\FunctionTok{print}\NormalTok{(tab\_rounded)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               workenv_rake
+## edu_group_rake Industry Academia   Other     Sum
+##        PhD       2239.2   4980.5  3015.2 10234.9
+##        non-PhD   3157.8   1346.5  3869.8  8374.1
+##        Sum       5397.0   6327.0  6885.0 18609.0
+\end{verbatim}
+
+
+Raking relies on the following assummptions:
+\begin{itemize}
+    \item The marginal distributions usedd reflect the true population.
+    \item Response probabilities depend only on the variables used in raking (e.g., row and column margins), not on specific interactions within cells. 
+    \item The missing data mechanism is ideally MAR, although this may not always hold in practice. 
+    \item Extreme weights are avoided to reduce undue influence and variance inflation. 
+\end{itemize}
+
+Observing the tables above, we see that the raking process caused the weights for respondents in the "Other" employment category to become much larger. 
+
+\subsection{(c) Can you conclude from this survey that a majority of the ASA membership opposed certification in 1994? Why, or why not?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Unweighted proportions including 0}
+\NormalTok{unweighted\_props }\OtherTok{\textless{}{-}}\NormalTok{ cert }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(certify }\SpecialCharTok{\%in\%} \DecValTok{0}\SpecialCharTok{:}\DecValTok{5}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}  \CommentTok{\# include no response (0)}
+  \FunctionTok{group\_by}\NormalTok{(certify) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{unweighted\_count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{unweighted\_prop =}\NormalTok{ unweighted\_count }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(unweighted\_count) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{)}
+
+\CommentTok{\# Weighted proportions (raked) including 0}
+\NormalTok{weighted\_props }\OtherTok{\textless{}{-}} \FunctionTok{svytable}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{certify, design\_raked)}
+\NormalTok{weighted\_props\_df }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(weighted\_props) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{weighted\_count =}\NormalTok{ Freq) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(certify }\SpecialCharTok{\%in\%} \DecValTok{0}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}
+
+\CommentTok{\# Fix factor vs numeric issue}
+\NormalTok{weighted\_props\_df}\SpecialCharTok{$}\NormalTok{certify }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{as.character}\NormalTok{(weighted\_props\_df}\SpecialCharTok{$}\NormalTok{certify))}
+
+\NormalTok{weighted\_props\_df }\OtherTok{\textless{}{-}}\NormalTok{ weighted\_props\_df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{weighted\_prop =}\NormalTok{ weighted\_count }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(weighted\_count) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{)}
+
+\CommentTok{\# Join unweighted and weighted}
+\NormalTok{props\_combined }\OtherTok{\textless{}{-}}\NormalTok{ unweighted\_props }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(weighted\_props\_df, }\AttributeTok{by =} \StringTok{"certify"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(certify, unweighted\_prop, weighted\_prop) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), }\SpecialCharTok{\textasciitilde{}}\FunctionTok{round}\NormalTok{(., }\DecValTok{1}\NormalTok{)))}
+
+\FunctionTok{print}\NormalTok{(props\_combined)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   certify unweighted_prop weighted_prop
+##     <dbl>           <dbl>         <dbl>
+## 1       0             0.2           0.3
+## 2       1            26.4          25.8
+## 3       2            22.3          22.3
+## 4       3             5.4           5.4
+## 5       4             6.7           6.9
+## 6       5            39            39.3
+\end{verbatim}
+
+
+Based on the results, about 39\% of respondents chose code 5, which represents oppposition to certification. Since this is less than half of the total responses, the data does not support the conclusion that a majority of ASA members opposed certification in 1994. 
+
+\section{Survey of Youth in Custody} 
+Weights are used in the Survey of Youth in Custody to adjust for unit nonresponse. Use a regression pocedure to impute values for the variable measuring with the number of times the youth was arrested. What variables will you use as the predictors? 
+
+\large{\textbf{Step 1: Choosing predictors}} \\
+Good candidate predictors that are likely correlated with \textit{numarr} are:
+\begin{itemize}
+    \item age: age of resident
+    \item race: categorical race variable 
+    \item ethnicity: hispanic or not
+    \item sex: male or female 
+    \item educ: highest educational attainment 
+    \item livewith: who they lived with growing up (family structure)
+    \item famtime: family incarceration history
+    \item crimtype: type of current offense 
+    \item everviol: history of violent offense probation
+    \item probtn: number of times on probation
+    \item corrinst: prior corrections
+    \item evertime: prior correctional instution stay 
+    \item prviol, prvprop, prdrug, prpub, prjuv: prior arrests for various offenses
+    \item agefirst: age first arrested
+    \item usewepn, alcuse, everdrug: other relevant behavioral variables 
+\end{itemize}
+
+\large{\textbf{Step 2: Regression Imputation in R} \\
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{syc }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"syc.xlsx"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(syc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 28
+##   stratum facility psusize initwt finalwt randgrp   age  race 
+##     <dbl>    <dbl>   <dbl>  <dbl>   <dbl>   <dbl> <dbl> <dbl>    
+## 1       7       20      53      8      10       5    14     2      
+## 2       7       20      53      8      10       6    13     2        
+## 3       7       20      53      8      10       7    12     2         
+## 4       7       20      53      8      10       1    15     2         
+## 5       7       20      53      8      10       2    14     2         
+## 6       7       20      53      8      14       3    14     1        
+## # i 20 more variables: ethnicity <dbl>, educ <dbl>, sex <dbl>, 
+## #   livewith <dbl>, famtime <dbl>, crimtype <dbl>, everviol <dbl>, 
+## #   numarr <dbl>, probtn <dbl>, corrinst <dbl>, evertime <dbl>, 
+## #   prviol <dbl>, prprop <dbl>, prdrug <dbl>, prpub <dbl>, 
+## #   prjuv <dbl>, agefirst <dbl>, usewepn <dbl>, alcuse <dbl>, 
+## #   everdrug <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Recoding missing values for numarr and other numeric variables}
+\CommentTok{  as NA }
+\NormalTok{syc }\OtherTok{\textless{}{-}}\NormalTok{ syc }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{numarr =} \FunctionTok{ifelse}\NormalTok{(numarr }\SpecialCharTok{==} \DecValTok{99}\NormalTok{, }\ConstantTok{NA}\NormalTok{, numarr),}
+    \AttributeTok{age =} \FunctionTok{ifelse}\NormalTok{(age }\SpecialCharTok{==} \DecValTok{99}\NormalTok{, }\ConstantTok{NA}\NormalTok{, age),}
+    \AttributeTok{probtn =} \FunctionTok{ifelse}\NormalTok{(probtn }\SpecialCharTok{==} \DecValTok{99}\NormalTok{, }\ConstantTok{NA}\NormalTok{, probtn),}
+    \AttributeTok{corrinst =} \FunctionTok{ifelse}\NormalTok{(corrinst }\SpecialCharTok{==} \DecValTok{99}\NormalTok{, }\ConstantTok{NA}\NormalTok{, corrinst),}
+    \AttributeTok{agefirst =} \FunctionTok{ifelse}\NormalTok{(agefirst }\SpecialCharTok{==} \DecValTok{99}\NormalTok{, }\ConstantTok{NA}\NormalTok{, agefirst),}
+    \AttributeTok{educ =} \FunctionTok{ifelse}\NormalTok{(educ }\SpecialCharTok{==} \DecValTok{99}\NormalTok{, }\ConstantTok{NA}\NormalTok{, educ),}
+\NormalTok{  )}
+
+\CommentTok{\# Fitting linear regression model on non{-}missing numarr}
+\NormalTok{fit }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(numarr }\SpecialCharTok{\textasciitilde{}}\NormalTok{ age }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(race) }\SpecialCharTok{+}\NormalTok{ ethnicity }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(sex) }\SpecialCharTok{+}
+       \FunctionTok{factor}\NormalTok{(educ) }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(livewith) }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(famtime) }\SpecialCharTok{+} 
+       \FunctionTok{factor}\NormalTok{(crimtype) }\SpecialCharTok{+}\NormalTok{ everviol }\SpecialCharTok{+}\NormalTok{ probtn }\SpecialCharTok{+}\NormalTok{ corrinst }\SpecialCharTok{+} 
+       \FunctionTok{factor}\NormalTok{(evertime) }\SpecialCharTok{+}\NormalTok{ prviol }\SpecialCharTok{+}\NormalTok{ prprop }\SpecialCharTok{+}\NormalTok{ prdrug }\SpecialCharTok{+}\NormalTok{ prpub }\SpecialCharTok{+}
+       \NormalTok{prjuv }\SpecialCharTok{+}\NormalTok{ agefirst }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(usewepn) }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(alcuse) }\SpecialCharTok{+}
+       \NormalTok{everdrug, }\AttributeTok{data =}\NormalTok{ syc, }\AttributeTok{na.action =}\NormalTok{ na.exclude)}
+
+\CommentTok{\# Predicting missing numarr values}
+\NormalTok{missing\_idx }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(syc}\SpecialCharTok{$}\NormalTok{numarr))}
+\NormalTok{predicted\_values }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(fit, }\AttributeTok{newdata =}\NormalTok{ syc[missing\_idx, ])}
+
+\CommentTok{\# Imputing predicted values back into data}
+
+\NormalTok{syc}\SpecialCharTok{$}\NormalTok{numarr[missing\_idx] }\OtherTok{\textless{}{-}} \FunctionTok{pmax}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{round}\NormalTok{(predicted\_values))}
+
+\FunctionTok{head}\NormalTok{(syc}\SpecialCharTok{$}\NormalTok{numarr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 24  3  4  6  4 20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = numarr ~ age + factor(race) + ethnicity + factor(sex) + 
+##     factor(educ) + factor(livewith) + factor(famtime) + factor(crimtype) + 
+##     everviol + probtn + corrinst + factor(evertime) + prviol + 
+##     prprop + prdrug + prpub + prjuv + agefirst + factor(usewepn) + 
+##     factor(alcuse) + everdrug, data = syc, na.action = na.exclude)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -36.000  -4.689  -1.633   1.509  91.896 
+## 
+## Coefficients:
+##                    Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)        20.96160    8.50022   2.466  0.01373 *  
+## age                 0.46973    0.15249   3.080  0.00209 ** 
+## factor(race)2       0.01500    0.51889   0.029  0.97695    
+## factor(race)3      -0.79777    2.40629  -0.332  0.74027    
+## factor(race)4      -0.75087    1.40787  -0.533  0.59385    
+## factor(race)5       1.61620    1.55824   1.037  0.29975    
+## factor(race)9       2.99448    6.41792   0.467  0.64084    
+## ethnicity           0.58018    0.44360   1.308  0.19104    
+## factor(sex)2       -0.56523    0.99631  -0.567  0.57055    
+## factor(educ)1       2.42372   13.48528   0.180  0.85738    
+## factor(educ)3      -7.47850   11.00700  -0.679  0.49693    
+## factor(educ)4      24.70576   10.12339   2.440  0.01474 *  
+## factor(educ)5      -0.28373    9.26851  -0.031  0.97558    
+## factor(educ)6       2.08183    7.94082   0.262  0.79321    
+## factor(educ)7      -0.40215    7.87267  -0.051  0.95926    
+## factor(educ)8      -0.48360    7.85736  -0.062  0.95093    
+## factor(educ)9       0.87470    7.84654   0.111  0.91125    
+## factor(educ)10      0.95535    7.84342   0.122  0.90307    
+## factor(educ)11      0.99891    7.85584   0.127  0.89883    
+## factor(educ)12      1.88414    7.88191   0.239  0.81109    
+## factor(educ)13      0.44944    8.35995   0.054  0.95713    
+## factor(educ)14      1.84924    8.22641   0.225  0.82216    
+## factor(livewith)2  -1.62536    1.01242  -1.605  0.10853    
+## factor(livewith)3  -0.44205    0.52030  -0.850  0.39563    
+## factor(livewith)4   0.24873    0.80279   0.310  0.75671    
+## factor(livewith)5  -0.61891    1.47295  -0.420  0.67439    
+## factor(livewith)6  -2.96220    4.92948  -0.601  0.54795    
+## factor(livewith)7  -3.51603    1.79199  -1.962  0.04987 *  
+## factor(livewith)8  -2.10651    5.59175  -0.377  0.70642    
+## factor(livewith)9   0.61977    1.82610   0.339  0.73434    
+## factor(livewith)99 -9.75451    6.38570  -1.528  0.12675    
+## factor(famtime)2   -0.04848    0.45959  -0.105  0.91600    
+## factor(famtime)9    4.58860    2.11024   2.174  0.02977 *  
+## factor(crimtype)2   0.72233    0.78911   0.915  0.36009    
+## factor(crimtype)3   0.63943    1.14435   0.559  0.57637    
+## factor(crimtype)4  -0.99153    1.23069  -0.806  0.42051    
+## factor(crimtype)5   2.68480    1.94282   1.382  0.16713    
+## factor(crimtype)9  -3.32516    3.93609  -0.845  0.39831    
+## everviol           -0.30774    0.93006  -0.331  0.74076    
+## probtn              0.27174    0.11855   2.292  0.02197 *  
+## corrinst            0.49710    0.06221   7.991 2.04e-15 ***
+## factor(evertime)2  -0.01101    0.53658  -0.021  0.98363    
+## factor(evertime)9  -4.55009    4.65180  -0.978  0.32810    
+## prviol              0.29278    0.71014   0.412  0.68017    
+## prprop              1.38072    0.55898   2.470  0.01358 *  
+## prdrug              1.60183    0.57883   2.767  0.00569 ** 
+## prpub               1.38945    0.62088   2.238  0.02532 *  
+## prjuv               0.95042    0.51677   1.839  0.06602 .  
+## agefirst           -1.80405    0.11386 -15.844  < 2e-16 ***
+## factor(usewepn)2   -1.24912    0.54206  -2.304  0.02128 *  
+## factor(usewepn)9   -2.90752    3.51098  -0.828  0.40768    
+## factor(alcuse)2    -2.01536    0.91559  -2.201  0.02782 *  
+## factor(alcuse)3    -0.76607    0.64230  -1.193  0.23310    
+## factor(alcuse)9    14.92024    6.57158   2.270  0.02327 *  
+## everdrug            0.01915    0.44596   0.043  0.96575    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 10.94 on 2436 degrees of freedom
+##   (130 observations deleted due to missingness)
+## Multiple R-squared:  0.2586, Adjusted R-squared:  0.2422 
+## F-statistic: 15.74 on 54 and 2436 DF,  p-value: < 2.2e-16
+\end{verbatim}
+\end{document}
