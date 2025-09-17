@@ -1,0 +1,198 @@
+---
+output:
+  pdf_document: 
+      keep_tex: true
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(sampling)
+library(knitr)
+```
+
+```{r}
+baseballdata<-read_excel(path = "C:/Users/amore_6ou078y/OneDrive/Documents/baseball.xlsx", 
+                         col_names=c("team", "leagueID", "player", "salary", "POS", "G", "GS", "InnOuts", "PO", "A", "E", "DP", "PB", "GB", "AB", "R", "H", "SecB", "ThiB", "HR", "RBI", "SB", "CS", "BB", "SO", "IBB", "HBP", "SH", "SF", "GIDP"), 
+                         trim_ws=TRUE)
+head(baseballdata)
+```
+
+```{r}
+# Computing the number of players per team (Nh)
+Nh <- baseballdata %>% count(team, name = "Nh")
+
+# Computing the standard deviation of salary per team (Sh)
+Sh <- baseballdata %>% group_by(team) %>% summarise(Sh = sd(salary, na.rm = TRUE)) %>% ungroup()
+
+# Merging Nh and Sh into one data frame and dropping rows with missing values
+NhSh <- left_join(Nh, Sh, by = "team") %>% drop_na(Sh)
+
+
+# Defining the sample sizes based on proportional allocation
+total_sample_size <- 150
+NhSh <- NhSh %>% mutate(sample_size = round(Nh / sum(Nh) * total_sample_size))
+
+# Sorting data by the stratification variable (team)
+baseballdata <- arrange(baseballdata, team)
+
+# Drawing a stratified sample using SRSWOR
+set.seed(138)
+strat_sample <- strata(baseballdata, stratanames = c("team"), size = NhSh$sample_size, method = "srswor")
+
+# Extracting the sampled data
+baseball_sample <- getdata(baseballdata, strat_sample)
+
+View(strat_sample)
+head(baseball_sample)
+```
+
+```{r}
+# Adding logsal column
+baseball_sample <- baseball_sample %>% mutate (logsal = log(salary))
+
+# Computing mean and standard error
+logsal_mean <- mean(baseball_sample$logsal, na.rm = TRUE)
+logsal_sd <- sd(baseball_sample$logsal, na.rm = TRUE)
+n <- nrow(baseball_sample)
+
+# Computing 95% CI
+t_value <- qt(0.975, df = n - 1) 
+margin_error <- t_value * (logsal_sd / sqrt(n))
+lower_CI <- logsal_mean - margin_error
+upper_CI <- logsal_mean + margin_error 
+
+cat("Mean of logsal:", logsal_mean, "\n")
+cat("95% CI: [", lower_CI, ",", upper_CI, "]\n")
+```
+
+```{r}
+# Estimating the proportion of pitchers 
+p_hat <- mean(baseball_sample$POS == "P", na.rm = TRUE)
+
+# Sample size
+
+n <- nrow(baseball_sample)
+
+# Population size 
+
+N <- 797 
+
+# Getting the standard error with FPC 
+SE <- sqrt((1 - (n/N)) * (p_hat * (1- p_hat)) / (n-1))
+
+# Computing 95% CI
+z_alpha <- 1.96
+lower_CI <- p_hat - z_alpha * SE
+upper_CI <- p_hat + z_alpha * SE
+
+cat("Estimated proportion of pitchers in the population:", p_hat, "\n")
+cat("95% Confidence Interval for the population proportion:", lower_CI, "to", upper_CI, "\n")
+```
+
+```{r}
+# Computing sample variances in each stratum
+sample_variances <- baseball_sample %>%
+  group_by(team) %>%
+  summarise(variance_logsal = var(logsal, na.rm = TRUE))
+head(sample_variances)
+```
+
+```{r}
+vius_data<-read_excel(path = "C:/Users/amore_6ou078y/OneDrive/Documents/vius.xlsx", 
+                         col_names=TRUE,
+                         trim_ws=TRUE) 
+                         
+head(vius_data)
+```
+
+```{r}
+# Computing the total estimate (t_hat)
+t_hat <- sum(vius_data$TABTRUCKS, na.rm = TRUE)
+
+# Computing sample size (n_h) and population size (N_h) per stratum
+strata_summary <- vius_data %>%
+  group_by(STRATUM) %>%
+  summarise(n_h = n(),
+            N_h = sum(TABTRUCKS, na.rm = TRUE),
+            s_h2 = var(TABTRUCKS, na.rm = TRUE))
+
+# Computing the standard deviation
+std_error <- sd(vius_data$TABTRUCKS, na.rm = TRUE) / sqrt(nrow(vius_data))
+
+# Computing the stratified variance
+var_t_hat <- sum((strata_summary$N_h^2 / strata_summary$n_h) * strata_summary$s_h2, na.rm = TRUE)
+SE_t_hat <- sqrt(var_t_hat)
+
+# Computing a 95% CI 
+lower_CI <- t_hat - 1.96 * SE_t_hat
+upper_CI <- t_hat + 1.96 * SE_t_hat
+
+
+cat("Estimated total of trucks in the United States:", t_hat, "\n")
+cat("Standard error of the estimator:", SE_t_hat, "\n")
+cat("95: CI: [", lower_CI, ",", upper_CI, "]\n")
+```
+
+\
+
+```{r}
+# Estimating the total number of truck miles driven in 2002
+t_hat_miles = sum(vius_data$MILES_ANNL * vius_data$TABTRUCKS, na.rm = TRUE)
+
+# Computing standard error (SE)
+se_t_hat <- sqrt(sum((vius_data$MILES_ANNL * vius_data$TABTRUCKS)^2, na.rm = TRUE))
+
+# Computing the margin of error for 95% CI
+z_alpha <- 1.96
+margin_of_error <- z_alpha * se_t_hat
+
+# Computing 95% CI
+lower_CI <- t_hat_miles - margin_of_error
+upper_CI <- t_hat_miles + margin_of_error 
+
+
+options(scipen = 999)
+cat("Estimated total truck miles driven in 2002:", format(t_hat_miles, big.mark = ",", scientific = FALSE), "\n")
+cat("95% CI: [", format(lower_CI, big.mark = ",", scientific = FALSE),
+    ",", format(upper_CI, big.mark = ",", scientific = FALSE), "]\n")
+```
+
+```{r}
+# Estimating the total number of truck miles driven in each of the five trucktype classes
+total_miles_by_trucktype <- vius_data %>%
+  group_by(TRUCKTYPE) %>%
+  summarise(estimated_total_miles = sum(MILES_ANNL * TABTRUCKS, na.rm = TRUE)) %>%
+  ungroup()
+
+# Adding a column for the 95% CIs
+total_miles_by_trucktype <- total_miles_by_trucktype %>%
+  mutate(
+    lower_CI = estimated_total_miles - (1.96 * (sd(estimated_total_miles) / sqrt(n()))),
+    upper_CI = estimated_total_miles + (1.96 * (sd(estimated_total_miles) / sqrt(n())))
+  )
+
+print(total_miles_by_trucktype)
+
+```
+
+```{r}
+# Estimating the average miles per gallon (MPG) for the trucks in the population
+vius_data$MPG <- as.numeric(vius_data$MPG)
+avg_mpg <- (sum(vius_data$MPG * vius_data$TABTRUCKS, na.rm = TRUE) / sum(vius_data$TABTRUCKS, na.rm = TRUE))
+
+# Computing standard deviation and sample size 
+sd_mpg <- sd(vius_data$MPG, na.rm = TRUE)
+n_mpg <- sum(!is.na(vius_data$MPG))
+
+# Computing standard error (SE) and 95% CI 
+se_mpg <- sd_mpg / sqrt(n_mpg)
+lower_ci <- avg_mpg - (1.96 * se_mpg)
+upper_ci <- avg_mpg + (1.96 * se_mpg)
+
+cat("Average miles per gallon (MPG) for the trucks in the population:", avg_mpg, "\n")
+cat("95% CI:[", lower_ci, ",", upper_CI, "]\n")
+```
